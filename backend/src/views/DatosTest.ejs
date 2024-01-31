@@ -1,0 +1,41 @@
+<%- include("template/headTemplate") %>
+
+<body>
+    <h1>DatosTest.ejs</h1>
+    <h2>Datos ingresados en la base de datos</h2>
+
+    <!-- Datos desplegados -->
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">nombre</th>
+            <th scope="col">carrera</th>
+            <th scope="col">acción</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (arrayDatosTest.length > 0) { %>
+            <% arrayDatosTest.forEach(DatoTest => { %>
+                <tr>
+                    <th scope="row">
+                        <%= DatoTest.id %>
+                    </th>
+                    <td>
+                        <%= DatoTest.nombre %>
+                    </td>
+                    <td>
+                        <%= DatoTest.carrera %>
+                    </td>
+                    <td><a class="btn btn-success btn-block" href="/DatosTest/<%= DatoTest.id %>">Ver</a></td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <a class="btn btn-success btn-block" href="/DatosTest/Crear">Crear Dato</a>
+
+</body>
+</html>
