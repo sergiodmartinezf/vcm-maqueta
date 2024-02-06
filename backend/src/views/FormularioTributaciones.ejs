@@ -1,0 +1,48 @@
+<%- include("template/headTemplate") %>
+ 
+<body>
+
+  <h1>
+    TRIBUTACIONES DE LA
+    ACTIVIDAD
+  </h1>
+    <form action="/Formulario/FormularioTributaciones" method="POST">
+
+      <div>
+      <label for="id_tipoUnidadTributaciones">Tipo de Unidad</label>
+      <label for="id_unidadTributaciones">Unidad</label>
+      </div>
+      <div>
+      <select name="tipoUnidadTributaciones" id="id_tipoUnidadTributaciones">
+        <option value="tipoUnidadTributaciones_opcion1">tipoUnidadTributaciones_opcion1</option>
+        <option value="tipoUnidadTributaciones_opcion2">tipoUnidadTributaciones_opcion2</option>
+        <option value="tipoUnidadTributaciones_opcion3">tipoUnidadTributaciones_opcion3</option>
+      </select>
+      <select name="unidadTributaciones" id="id_unidadTributaciones">
+        <option value="unidadTributaciones_opcion1">unidadTributaciones_opcion1</option>
+        <option value="unidadTributaciones_opcion2">unidadTributaciones_opcion2</option>
+        <option value="unidadTributaciones_opcion3">unidadTributaciones_opcion3</option>
+      </select>
+      <button class="btn btn-success btn-block" type="submit">AGREGAR</button>
+      </div>
+      <div>
+      
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Tipo</th>
+          <th scope="col">Rut</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellido Paterno</th>
+          <th scope="col">Apellido Materno</th>
+        </tr>
+      </thead>
+    </table>
+
+      <div>
+        <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">FormularioActividadInformacion</a>
+      </div>
+
+</body>

@@ -27,6 +27,7 @@ app.use(express.static(__dirname + "/public"));
 app.use('/', require('./routes/TestRouter'));
 app.use('/DatosTest', require('./routes/DatosTestRouter'));
 app.use('/FormTest', require('./routes/FormTestRouter'));
+app.use('/Formulario', require('./routes/FormularioRouter'));
 
 // Exportar confguración de aplicacións
 module.exports = app;
