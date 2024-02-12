@@ -1,20 +1,25 @@
 <%- include("template/headTemplate") %>
 
 <body>
-    <h1>ELECCIÓN DEL TIPO DE PROGRAMA</h1>
-    <form action="/Formulario" method="POST">
-        <div id="nombreProgramaDinamico">
-        <label for="id_tipoPrograma">Tipo de Programa: </label>
-        <label for="id_nombrePrograma" id="id_nombreProgramaLabel">Nombre del Programa: </label>
-        </div>
-        <div id="carreraFormularioDinamico">
-          <select name="tipoPrograma" id="id_tipoPrograma">
+
+<div class="container col-md-8">
+
+  <h1>ELECCIÓN DEL TIPO DE PROGRAMA</h1>
+  
+    <form class="w-100 p-4" action="/Formulario" method="POST">
+      <div class="row p-2">
+        <div class="form-group col-md-6">
+          <label for="id_tipoPrograma">Tipo de Programa: </label>
+            <select class="form-control" name="tipoPrograma" id="id_tipoPrograma">
               <option value="tipoPrograma_programa">Programa</option>
               <option value="tipoPrograma_proyecto">Proyecto</option>
-          </select>
-          <input type="text" name="carreraFormulario" id="id_carreraFormulario">
+            </select>
         </div>
-
+        <div class="form-group col-md-6">
+          <label for="id_nombrePrograma" id="id_nombreProgramaLabel">Nombre del Programa: </label>
+          <input class="form-control" type="text" name="carreraFormulario" id="id_carreraFormulario">
+        </div>
+      </div>
   </form>
 
   <!-- Botones para  campo de nombre del programa
@@ -24,10 +29,11 @@
   </div>
   -->
 
-  <div>
-  <a class="btn btn-success btn-block" href="/">Ir a Index</a>
+  <div class="p-4">
+  <a class="btn btn-success btn-block " href="/">Ir a Index</a>
   <a class="btn btn-success btn-block" href="/Formulario/Formulario2">Siguiente</a>
   </div>
+</div>
 
 
 <!-- Script para campo de nombre del programa -->

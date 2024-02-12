@@ -1,67 +1,97 @@
 <%- include("template/headTemplate") %>
 
-<body>
+<%- include("template/navbarTemplate") %>
+
+<div class="container col-md-8">
 
   <h1>
     ENCUESTA DE LA ACTIVIDAD
     INTERACCIÓN
   </h1>
+
+  Inicio -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a> -> Interacción
+
     <form action="/Formulario/FormularioInteraccion" method="POST">
 
-      <!-- SECCIÓN 1 -->
+      <!-- SECCIÓN 1 --> 
       <h2>1.-Interacción</h2>
-      <div>
+      <div class="form-group p-2">
         <label for="id_1_1_numeroConvenio">1.1.-Número de Convenio</label>
-        <input type="text" name="1_1_numeroConvenio" id="id_1_1_numeroConvenio"></input>
+        <input class="form-control" type="text" name="1_1_numeroConvenio" id="id_1_1_numeroConvenio"></input>
       </div>
 
       <!-- SECCIÓN 2 -->
       <h2>2.-Interacción interna</h2>
-      <div>
+      <div class="form-group p-2">
         <label for="id_2_1_conQuienInteractuo">2.1.-¿Con quiénes interactuó o se asoció?</label>
+        <input class="form-control" type="text" name="2_1_conQuienInteractuo" id="id_2_1_conQuienInteractuo"></input>
       </div>
-      <div>
-        <input type="text" name="2_1_conQuienInteractuo" id="id_2_1_conQuienInteractuo"></input>
-      </div>
-      <div>
+
+      <div class="row p-2">
+      <div class="form-group col-md-7">
         <label for="id_2_2_cuantosAcademicos">2.2.-¿Cuántos académicos?</label>
-        <input type="text" name="2_2_cuantosAcademicos" id="id_2_2_cuantosAcademicos"></input>
       </div>
-      <div>
+      <div class="form-group col-md-5">
+        <input class="form-control" type="text" name="2_2_cuantosAcademicos" id="id_2_2_cuantosAcademicos"></input>
+      </div>
+    </div>
+
+    <div class="row p-2">
+      <div class="form-group col-md-7">
         <label for="id_2_3_cuantosAdministrativos">2.3.-¿Cuántos administrativos?</label>
-        <input type="text" name="2_3_cuantosAdministrativos" id="id_2_3_cuantosAdministrativos"></input>
       </div>
-      <div>
+      <div class="form-group col-md-5">
+        <input class="form-control" type="text" name="2_3_cuantosAdministrativos" id="id_2_3_cuantosAdministrativos"></input>
+      </div>
+    </div>
+      
+    <div class="row p-2">
+      <div class="form-group col-md-7">
         <label for="id_2_4_cuantosEstudiantes">2.4.-¿Cuántos estudiantes?</label>
-        <input type="text" name="2_4_cuantosEstudiantes" id="id_2_4_cuantosEstudiantes"></input>
       </div>
+      <div class="form-group col-md-5">
+        <input class="form-control" type="text" name="2_4_cuantosEstudiantes" id="id_2_4_cuantosEstudiantes"></input>
+      </div>
+    </div>
 
       <!-- SECCIÓN 3 -->
       <h2>3.-Interacción externa</h2>
-      <div>
+      <div class="row p-2">
+        <div class="form-group col-md-7">
         <label for="id_3_1_conQuienTrabajo">3.1.-¿Con quién se trabajó?</label>
-        <select name="3_1_conQuienTrabajo" id="id_3_1_conQuienTrabajo">
+      </div>
+      <div class="form-group col-md-5">
+        <select class="form-control" name="3_1_conQuienTrabajo" id="id_3_1_conQuienTrabajo">
           <option value="3_1_conQuienTrabajo_opcion1">3_1_conQuienTrabajo_opcion1</option>
           <option value="3_1_conQuienTrabajo_opcion2">3_1_conQuienTrabajo_opcion2</option>
           <option value="3_1_conQuienTrabajo_opcion3">3_1_conQuienTrabajo_opcion3</option>
         </select>
       </div>
+      </div>
 
       <!-- SECCIÓN 4 -->
       <h2>4.-Cobertura</h2>
-      <div>
+      <div class="row p-2">
+      <div class="form-group col-md-7">
         <label for="id_4_1_alcanceTerritorial">4.1.-Alcance Territorial</label>
-        <select name="4_1_alcanceTerritorial" id="id_4_1_alcanceTerritorial">
+      </div>
+      <div class="form-group col-md-5">
+        <select class="form-control" name="4_1_alcanceTerritorial" id="id_4_1_alcanceTerritorial">
           <option value="4_1_alcanceTerritorial_opcion1">4_1_alcanceTerritorial_opcion1</option>
           <option value="4_1_alcanceTerritorial_opcion2">4_1_alcanceTerritorial_opcion2</option>
           <option value="4_1_alcanceTerritorial_opcion3">4_1_alcanceTerritorial_opcion3</option>
         </select>
       </div>
+    </div>
       
     </form>
 
-    <div>
+    <!--
+    <div class="p-4">
       <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">FormularioActividadInformacion</a>
     </div>
+    -->
+
+  </div>
 
 </body>

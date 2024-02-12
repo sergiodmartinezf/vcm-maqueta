@@ -1,50 +1,63 @@
 <%- include("template/headTemplate") %>
  
-<body>
+<%- include("template/navbarTemplate") %>
+
+<div class="container col-md-8">
 
   <h1>
     ACTIVIDADES
     COLABORADORES
   </h1>
+
+  Inicio -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a> -> Colaboradores
+
     <form action="/Formulario/FormularioColaboradores" method="POST">
 
-      <div>
+    <div class="row p-2">
+    <div class="form-group col-md-2">
       <label for="id_tipoColaborador">Tipo</label>
-      <label for="id_rutColaborador">Rut</label>
-      <label for="id_nombreColaborador">Nombre</label>
-      <label for="id_apellidoPaternoColaborador">Apellido Paterno</label>
-      <label for="id_apellidoMaternoColaborador">Apellido Materno</label>
-      </div>
-      <div>
-      <select name="tipoColaborador" id="id_tipoColaborador">
+      <select class="form-control" name="tipoColaborador" id="id_tipoColaborador">
         <option value="tipoColaborador_opcion1">tipoColaborador_opcion1</option>
         <option value="tipoColaborador_opcion2">tipoColaborador_opcion2</option>
         <option value="tipoColaborador_opcion3">tipoColaborador_opcion3</option>
       </select>
-      <select name="rutColaborador" id="id_rutColaborador">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="id_rutColaborador">Rut</label>
+      <select class="form-control" name="rutColaborador" id="id_rutColaborador">
         <option value="rutColaborador_opcion1">rutColaborador_opcion1</option>
         <option value="rutColaborador_opcion2">rutColaborador_opcion2</option>
         <option value="rutColaborador_opcion3">rutColaborador_opcion3</option>
       </select>
-      <select name="nombreColaborador" id="id_nombreColaborador">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="id_nombreColaborador">Nombre</label>
+      <select class="form-control" name="nombreColaborador" id="id_nombreColaborador">
         <option value="nombreColaborador_opcion1">nombreColaborador_opcion1</option>
         <option value="nombreColaborador_opcion2">nombreColaborador_opcion2</option>
         <option value="nombreColaborador_opcion3">nombreColaborador_opcion3</option>
       </select>
-      <select name="apellidoPaternoColaborador" id="id_apellidoPaternoColaborador">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="id_apellidoPaternoColaborador">Apellido Paterno</label>
+      <select class="form-control" name="apellidoPaternoColaborador" id="id_apellidoPaternoColaborador">
         <option value="apellidoPaternoColaborador_opcion1">apellidoPaternoColaborador_opcion1</option>
         <option value="apellidoPaternoColaborador_opcion2">apellidoPaternoColaborador_opcion2</option>
         <option value="apellidoPaternoColaborador_opcion3">apellidoPaternoColaborador_opcion3</option>
       </select>
-      <select name="apellidoMaternoColaborador" id="id_apellidoMaternoColaborador">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="id_apellidoMaternoColaborador">Apellido Materno</label>
+      <select class="form-control" name="apellidoMaternoColaborador" id="id_apellidoMaternoColaborador">
         <option value="apellidoMaternoColaborador_opcion1">apellidoMaternoColaborador_opcion1</option>
         <option value="apellidoMaternoColaborador_opcion2">apellidoMaternoColaborador_opcion2</option>
         <option value="apellidoMaternoColaborador_opcion3">apellidoMaternoColaborador_opcion3</option>
       </select>
+    </div>
+    <div class="form-group col-md-2">
       <button class="btn btn-success btn-block">+</button>
-      </div>
-      <div>
-      
+    </div>
+  </div>
     </form>
 
     <table class="table">
@@ -59,8 +72,12 @@
       </thead>
     </table>
 
-  <div>
+  <!--
+  <div class="p-4">
   <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">FormularioActividadInformacion</a>
   </div>
+  -->
+
+</div>
 
 </body>

@@ -1,31 +1,39 @@
 <%- include("template/headTemplate") %>
  
-<body>
+<%- include("template/navbarTemplate") %>
+
+<div class="container col-md-8">
 
   <h1>
     TRIBUTACIONES DE LA
     ACTIVIDAD
   </h1>
+
+  Inicio -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a> -> Tributaciones
+
     <form action="/Formulario/FormularioTributaciones" method="POST">
 
-      <div>
+      <div class="row p-2">
+      <div class="form-group col-md-5">
       <label for="id_tipoUnidadTributaciones">Tipo de Unidad</label>
-      <label for="id_unidadTributaciones">Unidad</label>
-      </div>
-      <div>
-      <select name="tipoUnidadTributaciones" id="id_tipoUnidadTributaciones">
-        <option value="tipoUnidadTributaciones_opcion1">tipoUnidadTributaciones_opcion1</option>
-        <option value="tipoUnidadTributaciones_opcion2">tipoUnidadTributaciones_opcion2</option>
+      <select class="form-control" name="tipoUnidadTributaciones" id="id_tipoUnidadTributaciones">
+        <option value="tipoUnidadTributaciones_institucional">Institucional</option>
+        <option value="tipoUnidadTributaciones_departamento">Departamento</option>
         <option value="tipoUnidadTributaciones_opcion3">tipoUnidadTributaciones_opcion3</option>
       </select>
-      <select name="unidadTributaciones" id="id_unidadTributaciones">
+      </div>
+      <div class="form-group col-md-5">
+      <label for="id_unidadTributaciones">Unidad</label>
+      <select class="form-control" name="unidadTributaciones" id="id_unidadTributaciones">
         <option value="unidadTributaciones_opcion1">unidadTributaciones_opcion1</option>
         <option value="unidadTributaciones_opcion2">unidadTributaciones_opcion2</option>
         <option value="unidadTributaciones_opcion3">unidadTributaciones_opcion3</option>
       </select>
+      </div>
+      <div class="form-group col-md-2">
       <button class="btn btn-success btn-block" type="submit">AGREGAR</button>
       </div>
-      <div>
+    </div>
       
     </form>
 
@@ -41,8 +49,6 @@
       </thead>
     </table>
 
-      <div>
-        <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">FormularioActividadInformacion</a>
-      </div>
+    </div>
 
 </body>

@@ -1,21 +1,37 @@
 <%- include("template/headTemplate") %>
 
-<body>
+<%- include("template/navbarTemplate") %>
+
+<div class="container col-md-8">
 
   <h1>
     REGISTROS DE LA
     ACTIVIDAD
   </h1>
+
+  Inicio -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a> -> Registros
+
+  <h2>
+    ARCHIVOS-ENLACES
+  </h2>
+
     <form action="/Formulario/FormularioRegistros" method="POST">
 
       <!-- SECCIÓN 1 -->
+      <div class="container">
+        <input type="file" id="id_subirArchivo" class="file-upload"></input>
+      </div>
 
       <!-- SECCIÓN 2 -->
       
     </form>
 
+    <!--
     <div>
       <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">FormularioActividadInformacion</a>
     </div>
+    -->
+
+</div>
 
 </body>
