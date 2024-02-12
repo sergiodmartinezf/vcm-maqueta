@@ -1,0 +1,58 @@
+<%- include("template/headTemplate") %>
+
+<body>
+    <h1>FormTestDatos.ejs</h1>
+    <h2>Datos ingresados en la base de datos</h2>
+
+    <!-- Datos desplegados --> 
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Carrera</th>
+            <th scope="col">Actividad</th>
+            <th scope="col">Horas</th>
+
+            <th scope="col">Acción 1</th>
+            <th scope="col">Acción 2</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (arrayFormTestDatos.length > 0) { %>
+            <% arrayFormTestDatos.forEach(FormTestDatos => { %>
+                <tr>
+                    <th scope="row">
+                        <%= FormTestDatos.id %>
+                    </th>
+                    <td>
+                        <%= FormTestDatos.nombreFormTest %>
+                    </td>
+                    <td>
+                        <%= FormTestDatos.carreraFormTest %>
+                    </td>
+                    <td>
+                      <%= FormTestDatos.actividadTest %>
+                  </td>
+                  <td>
+                    <%= FormTestDatos.horasActividadTest %>
+                </td>
+                <td>
+                  <a class="btn btn-success btn-block" href="/FormTest/Actualizar/<%= FormTestDatos.id %>">Actualizar</a>
+                </td>
+                <td>
+                  <a class="btn btn-success btn-block" id="boton_borrar_dato" data-id="<%= FormTestDatos.id %>" href="/FormTest/Borrar/<%= FormTestDatos.id %>">Borrar</a>
+                </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <a class="btn btn-success btn-block" href="/FormTest">Ir a FormTest</a>
+
+</body>
+
+</html>

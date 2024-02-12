@@ -1,0 +1,137 @@
+<%- include("template/headTemplate") %>
+<body>
+
+    <% if (error) { %> <!-- Actúa cuando hay error, mostrando el mensaje -->
+        <h2><%= mensaje %></h2>
+    <% } else { %>
+
+    <!-- Datos desplegados -->
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Carrera</th>
+            <th scope="col">Actividad</th>
+            <th scope="col">Horas</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+        <tr>
+        <th scope="row">
+            <%= FormTestDatos.id %>
+        </th>
+        <td>
+            <%= FormTestDatos.nombreFormTest %>
+        </td>
+        <td>
+            <%= FormTestDatos.carreraFormTest %>
+        </td>
+        <td>
+            <%= FormTestDatos.actividadTest %>
+        </td>
+        <td>
+            <%= FormTestDatos.horasActividadTest %>
+        </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <% } %>
+
+    <!-- Formulario de Actualización -->
+    <h1>FormTestDatosActualizar.ejs</h1>
+    <% if (error) { %> <!-- Actúa cuando hay error, mostrando el mensaje -->
+        <h2><%= mensaje %></h2>
+    <% } else { %>
+
+        <form id='FormTestDatosActualizar' data-id="<%= FormTestDatos.id %>">
+
+            <div>
+              <label for="id_nombreFormTest">Nombre: </label>
+              <input type="text" name="nombreFormTestNuevo">
+            </div>
+            <br>
+            <div>
+              <label for="id_carreraFormTest">Carrera: </label>
+              <input type="text" name="carreraFormTestNuevo">
+            </div>
+            <br>
+            <div>
+              <label for="id_actividadTest">Actividad: </label>
+                <select name="actividadTestNuevo" id="id_actividadTest">
+                    <option value="actividadTest1">Actividad 1</option>
+                    <option value="actividadTest2">Actividad 2</option>
+                    <option value="actividadTest3">Actividad 3</option>
+                    <option value="actividadTest4">Actividad 4</option>
+                    <option value="actividadTest5">Actividad 5</option>
+                    <option value="actividadTest6">Actividad 6</option>
+                </select>
+            </div>
+            <br>
+            <div>
+              <label for="id_horasActividadTest">Actividad: </label>
+                <select name="horasActividadTestNuevo" id="id_horasActividadTest">
+                    <option value="1">1 Hora</option>
+                    <option value="2">2 Horas</option>
+                    <option value="3">3 Horas</option>
+                    <option value="4">4 Horas</option>
+                    <option value="5">5 Horas</option>
+                    <option value="6">6 Horas</option>
+                </select>
+            </div>
+            <div>
+            <button class="btn btn-success btn-block" type="submit">Actualizar</button>
+            </div>
+        </form>
+        <div>
+        <a class="btn btn-success btn-block" href="/FormTest/FormTestDatos">Ir a FormTestDatos</a>
+        </div>
+
+    <% } %>
+
+</body>
+
+<script>
+    console.log('El script se está ejecutando');
+
+// Funcionalidad de botón para actualizar dato encontrado
+const FormTestDatosActualizar = document.querySelector('#FormTestDatosActualizar');
+
+// Confirmación por consola de que se reconoce la activación del botón
+FormTestDatosActualizar.addEventListener('submit', async(e) => {
+    e.preventDefault();
+
+    // Lo siguiente requiere los atributos name de cada input
+    const nombreFormTestNuevo = FormTestDatosActualizar.elements['nombreFormTestNuevo'].value;
+    const carreraFormTestNuevo = FormTestDatosActualizar.elements['carreraFormTestNuevo'].value;
+    const actividadTestNuevo = FormTestDatosActualizar.elements['actividadTestNuevo'].value;
+    const horasActividadTestNuevo = FormTestDatosActualizar.elements['horasActividadTestNuevo'].value;
+
+    // Se captura id del url utilizando data-id 
+    const id = FormTestDatosActualizar.dataset.id;
+
+    console.log(`id=${id}, body(nombreFormTestNuevo)=${nombreFormTestNuevo}, body(carreraFormTestNuevo)=${carreraFormTestNuevo}, body(actividadTestNuevo)=${actividadTestNuevo}, body(horasActividadTestNuevo)=${horasActividadTestNuevo}`);
+    
+    try {
+        const data = await fetch(`/FormTest/Actualizar/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id, nombreFormTestNuevo, carreraFormTestNuevo, actividadTestNuevo, horasActividadTestNuevo })
+        },
+        console.log(JSON.stringify({ id, nombreFormTestNuevo, carreraFormTestNuevo, actividadTestNuevo, horasActividadTestNuevo })));
+
+        // Respuesta 
+        const res = await data.json();
+        console.log(`res=${res}`);
+        
+    } catch(error) {
+        console.log(error)
+    };
+});
+</script>
+
+</html>
