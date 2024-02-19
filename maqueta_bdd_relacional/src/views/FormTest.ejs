@@ -1,11 +1,15 @@
 <%- include("template/headTemplate") %>
 
-<body>
+<body> 
     <h1>Formulario de Inscripción (TEST)</h1>
     Ingrese sus datos
     <h2>Datos Personales</h2>
     <form action="/FormTest" method="POST">
 
+      <div>
+        <label for="id_id">id: </label>
+        <input type="number" name="id">
+      </div>
       <div>
         <label for="id_nombreFormTest">Nombre: </label>
         <input type="text" name="nombreFormTest">
@@ -39,7 +43,7 @@
               <option value="6">6 Horas</option>
           </select>
       </div>
-      <div>
+      <div> 
       <button class="btn btn-success btn-block" type="submit">Inscribir</button>
       </div>
   </form>

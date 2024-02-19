@@ -1,9 +1,11 @@
-const mongoose = require('mongoose');
+const sqlite = require('sqlite3');
 
 // Conexión a base de datos 
-const database = mongoose.connect('mongodb://localhost:27017/datos_vcm')
-    .then(() => console.log('Base de Datos Conectada'))
-    .catch(error => console.log('Hubo un Error de Conexión a la Base de Datos:'+'\n'+error));
+const database = new sqlite.Database("./vcm-maqueta.db", sqlite.OPEN_READWRITE, (error) => {
+    if (error) {
+        return console.error(error);
+    }
+});
 
 
 // Exportar configuración de base de datos

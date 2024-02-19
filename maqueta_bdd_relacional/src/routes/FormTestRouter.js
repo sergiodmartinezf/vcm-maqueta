@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Importa funciones de controller 
+// Importa funciones de controller
 const {
     mostrarFormTest,
     guardarFormTest,
