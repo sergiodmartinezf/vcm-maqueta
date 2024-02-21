@@ -6,7 +6,7 @@ const mostrarFormTest = (req, res) => {
     res.render('FormTest');
 };
 
-// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create)
+// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
 const guardarFormTest = async (req, res) => {
     const body = req.body;
     console.log(body);
