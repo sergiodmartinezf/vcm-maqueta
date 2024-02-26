@@ -1,49 +1,100 @@
 // Se importa funcionalidad de base de datos 
 const database = require('../database');
 
+// PROGRAMA
+
 // Mostrar Formulario
-const mostrarFormulario = (req, res) => {
-    res.render('Formulario');
+const mostrarFormularioPrograma1 = (req, res) => {
+    res.render('FormularioPrograma1');
+};
+
+// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
+const guardarFormularioPrograma1 = async (req, res) => {
+    const body = req.body;
+    console.log('BODY FormularioPrograma1',body);
+    try {
+        // Instrucción sql para testing de base de datos relacional sqlite3
+        const guardarFormularioPrograma1 = "insert into vcm_programas(id_programa,id_tipo_programa,nombre) values (?,?,?);";
+
+        // Hace correr comando sql
+        database.run(guardarFormularioPrograma1,[1, body.tipoPrograma, body.nombrePrograma]);
+
+        res.redirect('/Formulario/FormularioPrograma2'); 
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 // Mostrar Formulario (Pág 2)
-const mostrarFormulario2 = (req, res) => {
-    res.render('Formulario2');
+const mostrarFormularioPrograma2 = (req, res) => {
+    res.render('FormularioPrograma2');
 };
 
-// Mostrar Formulario (Pág 3)
+// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
+const guardarFormularioPrograma2 = async (req, res) => {
+    const body = req.body;
+    console.log('BODY FormularioPrograma2',body);
+    try {
+        // Instrucción sql para testing de base de datos relacional sqlite3
+        const guardarFormularioPrograma2 = "INSERT INTO vcm_programas() VALUES () WHERE id_programa=?;";
+
+        // Hace correr comando sql
+        database.run(guardarFormularioPrograma2,[]);
+
+        res.redirect('/Formulario/FormularioPrograma2'); 
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// Mostrar Formulario (Información del Programa)
 const mostrarFormularioProgramaInformacion = (req, res) => {
     res.render('FormularioProgramaInformacion');
 };
 
+// ACTIVIDAD
+
 // Mostrar Formulario (Pág 3)
-const mostrarFormulario3 = (req, res) => {
-    res.render('Formulario3');
+const mostrarFormularioActividad = (req, res) => {
+    res.render('FormularioActividad');
 };
 
 // Mostrar Formulario (Información de Actividad)
+const mostrarFormularioActividadInformacion = (req, res) => {
+    res.render('FormularioActividadInformacion');
+};
+
+// Mostrar Formulario (Búsqueda de Actividad)
+const mostrarFormularioActividadBuscar = (req, res) => {
+    res.render('FormularioActividadBuscar');
+};
+
+// INTERACCIÓN
+
+// Mostrar Formulario (Interacción)
 const mostrarFormularioInteraccion = (req, res) => {
     res.render('FormularioInteraccion');
 };
+
+// REGISTROS
 
 // Mostrar Formulario (Registros)
 const mostrarFormularioRegistros = (req, res) => {
     res.render('FormularioRegistros');
 };
 
+// COLABORADORES
+
 // Mostrar Formulario (Colaboradores)
 const mostrarFormularioColaboradores = (req, res) => {
     res.render('FormularioColaboradores');
 };
 
+// TRIBUTACIONES
+
 // Mostrar Formulario (Tributaciones)
 const mostrarFormularioTributaciones = (req, res) => {
     res.render('FormularioTributaciones');
-};
-
-// Mostrar Formulario (Información de Actividad)
-const mostrarFormularioActividadInformacion = (req, res) => {
-    res.render('FormularioActividadInformacion');
 };
 
 
@@ -386,19 +437,21 @@ const verDatosFormulario = async (req, res) => {
     }
 };
 
-// Exportar router
+// Exportar router 
 module.exports = {
     // Renderización de secciones de formulario
-    mostrarFormulario,
-    mostrarFormulario2,
+    mostrarFormularioPrograma1,
+    mostrarFormularioPrograma2,
     mostrarFormularioProgramaInformacion,
-    mostrarFormulario3,
+    mostrarFormularioActividad,
     mostrarFormularioActividadInformacion,
     mostrarFormularioInteraccion,
     mostrarFormularioRegistros,
     mostrarFormularioColaboradores,
     mostrarFormularioTributaciones,
+    mostrarFormularioActividadBuscar,
 
     // Interacciones de formulario con base de datos
     verDatosFormulario,
+    guardarFormularioPrograma1,
 };

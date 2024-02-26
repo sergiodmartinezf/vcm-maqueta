@@ -1,12 +1,13 @@
 <%- include("template/headTemplate") %>
-
-<body>
+<%- include("template/navbar1Template") %>
 
 <div class="container col-md-8">
 
-  <h1>AGREGAR UN PROGRAMA</h1>
+  <h1>AGREGAR UN PROGRAMA</h1> 
 
-    <form class="w-100 p-4" action="/Formulario/Formulario2" method="POST">
+  <a href="/">Inicio</a> -> <a href="/Formulario/FormularioPrograma1">Nuevo Programa</a> -> <a href="/Formulario/FormularioPrograma2">Formulario de Nuevo Programa</a>
+
+    <form class="w-100 p-4" action="/Formulario/FormularioPrograma2" method="POST">
 
       <div class="form-group p-2">
         <label for="id_nombrePrograma">Nombre del Programa: </label>
@@ -27,26 +28,18 @@
         <div class="form-group col-md-6">
         <label for="id_tipoUnidadAsociada">Tipo de Unidad Asociada: </label>
         <select class="form-control" name="tipoUnidadAsociada" id="id_tipoUnidadAsociada">
-          <option value="tipoUnidadAsociada_institucional">Institucional</option>
-          <option value="tipoUnidadAsociada_departamental">Departamento</option>
-          <option value="tipoUnidadAsociada_carrera">Carrera</option>
-        </select>
+          <option value="1">Institucional</option>
+          <option value="2">Departamento</option>
+          <option value="3">Carrera</option>
+        </select> 
         </div>
-        <div class="form-group col-md-6">
-        <label for="id_unidadAsociada">Unidad Asociada: </label>
-        <select class="form-control" name="unidadAsociada" id="id_unidadAsociada">
-          <option value="unidadAsociada_opcion1">opcion1</option>
-          <option value="unidadAsociada_opcion2">opcion2</option>
-          <option value="unidadAsociada_opcion3">opcion3</option>
-        </select>
-        </div>
+        <%- include("template/unidadAsociada1Template") %>
       </div>
       
     </form>
 
   <div class="p-4">
-  <a class="btn btn-success btn-block" href="/">Ir a Index</a>
-  <a class="btn btn-success btn-block" href="/Formulario/FormularioProgramaInformacion">Siguiente</a>
+  <a class="btn btn-success btn-block" href="/Formulario/FormularioProgramaInformacion">Guardar</a>
   </div>
 
 </div>

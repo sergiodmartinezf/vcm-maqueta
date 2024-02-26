@@ -1,12 +1,14 @@
 <%- include("template/headTemplate") %>
-
-<body>
+<%- include("template/navbar1Template") %>
 
 <div class="container col-md-8">
 
+  <h2>ACTIVIDADES</h2>
   <h1>AGREGAR UNA NUEVA ACTIVIDAD</h1>
 
-    <form action="/Formulario/Formulario3" method="POST">
+  <a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividad">Formulario de Nueva Actividad</a>
+
+    <form action="/Formulario/FormularioActividad" method="POST">
 
       <!-- FILA 1 -->
       <div class="row p-2">
@@ -76,19 +78,19 @@
       <div class="row p-2">
       <div class="form-group col-md-3">
         <label for="id_fechaInicio">Fecha de Inicio: </label>
-        <input class="form-control" type="text" name="fechaInicio" id="id_fechaInicio"></input>
+        <input class="form-control" type="date" name="fechaInicio" id="id_fechaInicio"></input>
       </div>
       <div class="form-group col-md-3">
         <label for="id_horaInicio">Hora de Inicio: </label>
-        <input class="form-control" type="text" name="horaInicio" id="id_horaInicio"></input>
+        <input class="form-control" type="time" name="horaInicio" id="id_horaInicio"></input>
       </div>
       <div class="form-group col-md-3">
         <label for="id_fechaTermino">Fecha de Término: </label>
-        <input class="form-control" type="text" name="fechaTermino" id="id_fechaTermino"></input>
+        <input class="form-control" type="date" name="fechaTermino" id="id_fechaTermino"></input>
       </div>
       <div class="form-group col-md-3">
         <label for="id_horaTermino">Hora de Término: </label>
-        <input class="form-control" type="text" name="horaTermino" id="id_horaTermino"></input>
+        <input class="form-control" type="time" name="horaTermino" id="id_horaTermino"></input>
       </div>
     </div>
 
@@ -150,8 +152,7 @@
     </form>
 
   <div class="p-4">
-  <a class="btn btn-success btn-block" href="/">Ir a Index</a>
-  <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">Siguiente</a>
+  <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">Guardar</a>
   </div>
 
 </div>

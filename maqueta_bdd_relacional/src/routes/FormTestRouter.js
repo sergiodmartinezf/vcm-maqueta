@@ -13,7 +13,7 @@ const {
 } = require('../controllers/FormTestController');
 
 // Muesta formulario
-router.get('/', mostrarFormTest);
+router.get('/', mostrarFormTest); 
 
 // Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create)
 router.post('/', guardarFormTest);

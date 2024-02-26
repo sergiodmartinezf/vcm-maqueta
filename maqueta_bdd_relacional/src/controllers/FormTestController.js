@@ -6,11 +6,11 @@ const mostrarFormTest = (req, res) => {
     res.render('FormTest');
 };
 
-// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
+// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create)
 const guardarFormTest = async (req, res) => {
     const body = req.body;
-    console.log(body);
-    try {
+    console.log('BODY FormTest',body); 
+    try {/**
         const {id,nombreFormTest,carreraFormTest,actividadTest,horasActividadTest} = req.body;
 
         // Instrucción sql para testing de base de datos relacional sqlite3
@@ -19,7 +19,7 @@ const guardarFormTest = async (req, res) => {
         // Hace correr comando sql
         database.run(guardarFormTest,[id, nombreFormTest, carreraFormTest, actividadTest, horasActividadTest]);
 
-        res.redirect('/FormTest/FormTestDatos'); 
+        */res.redirect('/FormTest/FormTestDatos'); 
     } catch (error) {
         console.log(error);
     }
@@ -27,7 +27,7 @@ const guardarFormTest = async (req, res) => {
 
 // Muestra datos en base de datos ingresados por el formulario
 const verDatosFormTest = async (req, res) => {
-    const sql = "select * from form_test_model";
+    const sql = "select * from vcm_programas";
     try {
         const arrayFormTestDatosDB = await new Promise((resolve, reject) => {
             database.all(sql, [], (error, filas) => {
