@@ -28,5 +28,5 @@ app.use('/', require('./routes/indexRouter'));
 app.use('/FormTest', require('./routes/FormTestRouter'));
 app.use('/Formulario', require('./routes/FormularioRouter'));
 
-// Exportar confguración de aplicacións
+// Exportar confguración de aplicación
 module.exports = app;

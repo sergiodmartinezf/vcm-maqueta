@@ -2,18 +2,23 @@
 <%- include("template/navbar1Template") %>
 <%- include("template/navbar2Template") %>
 
-<div class="container col-md-8">
-
-  <h1>
+<!-- TITULO --> 
+<div class="p-4">
+  <h2>
     REGISTROS DE LA
+  </h2>
+  <h1>
     ACTIVIDAD
   </h1>
-
   <a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a> -> <a href="/Formulario/FormularioRegistros">Registros</a>
+</div>
 
   <h2>
     ARCHIVOS-ENLACES
   </h2>
+
+<!-- FORMULARIO -->
+<div class="container rounded col-md-8" style="background-color: white;">
 
     <form action="/Formulario/FormularioRegistros" method="POST">
 
@@ -35,3 +40,5 @@
 </div>
 
 </body>
+
+</html> 

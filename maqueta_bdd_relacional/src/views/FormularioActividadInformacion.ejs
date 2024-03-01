@@ -2,24 +2,82 @@
 <%- include("template/navbar1Template") %>
 <%- include("template/navbar2Template") %>
 
-<div class="container col-md-8">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Recuerde rellenar lo siguiente:</h5><!--
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+      </div>
+      <div class="modal-body">
 
-    <h1>
-      INFORMACIÓN DE LA ACTIVIDAD
-    </h1>
+      <!-- FILA 1 -->
+      <div class="row p-2">
+        <div class="col-md-6">
+      
+          <a type="button" class="container btn btn-block" href="/Formulario/FormularioInteraccion">
+            <i class="bi-file-text-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+            <div>Interacción</div>
+          </a>
 
-    <a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a>
+        </div>
+        <div class="col-md-6">
 
-    <!-- Datos desplegados --> 
+          <a type="button" class="container btn btn-block" href="/Formulario/FormularioRegistros">
+            <i class="bi-image-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+            <div>Registros</div>
+          </a>
+
+        </div>
+      </div>
+      <!-- FILA 2 -->
+      <div class="row p-2">
+        <div class="col-md-6">
+
+          <a type="button" class="container btn btn-block" href="/Formulario/FormularioColaboradores">
+            <i class="bi-people-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+            <div>Colaboradores</div>
+          </a>
+
+        </div>
+        <div class="col-md-6">
+
+          <a type="button" class="container btn btn-block" href="/Formulario/FormularioTributaciones">
+            <i class="bi-currency-dollar" style="font-size: 2rem; color: dodgerblue;"></i>
+            <div>Tributaciones</div>
+          </a>
+
+        </div>
+      </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button><!--
+        <button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TITULO --> 
+<div class="p-4">
+<h2>
+  INFORMACIÓN DE LA
+</h2> 
+<h1>
+  ACTIVIDAD
+</h1>
+<a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a>
+</div>
+
+<!-- FORMULARIO -->
+<div class="container rounded col-md-8" style="background-color: white;">
+ 
+    <!-- Datos desplegados -->
     <table class="table">
-      <!--
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-          </tr>
-        </thead>
-        -->
         <tbody>
           <tr>
             <th scope="col">
@@ -128,9 +186,9 @@
         </tbody>
       </table>
 
-      <h2>
+      <h4 class="container rounded" style="background-color: lightgrey;">
         CREADO POR
-      </h2>
+      </h4>
   
       <!-- Datos desplegados -->
       <table class="table">
@@ -162,10 +220,14 @@
           </tbody>
         </table>
 
-      <a class="btn btn-success btn-block" href="/">INDEX</a>
-
-  </div>
+      <!--<a class="btn btn-success btn-block" href="/">INDEX</a>-->
   
+</div>
+
 </body>
+
+<script>
+  $('#exampleModal').modal('show');
+</script>
 
 </html>

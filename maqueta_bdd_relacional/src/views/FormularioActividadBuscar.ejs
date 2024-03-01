@@ -16,7 +16,7 @@
       <input class="form-control" type="text" name="WALWLEEALWDLWLFAWLDKF" id="id_WALWLEEALWDLWLFAWLDKF"></input>
     </div>
     <div class="form-group col-md-2">
-      <button class="btn btn-success btn-block">BUSCAR</button>
+      <button class="btn btn-primary btn-block">BUSCAR</button>
     </div>
   </div>
     </form>
@@ -30,12 +30,31 @@
           <th scope="col">Responsable</th>
         </tr>
       </thead>
+      <tbody>
+         
+        <% if (array_vcm_actividades.length > 0) { %>
+            <% array_vcm_actividades.forEach(vcm_actividades => { %>
+                <tr>
+                    <th scope="row">
+                      <%= vcm_actividades.id_actividad %>
+                    </th>
+                    <td>
+                      <%= vcm_actividades.nombre %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.fecha %>
+                    </td>
+                    <td>
+                      PLACEHOLDER
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
     </table>
-
-  <div class="p-4">
-    <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">Guardar</a>
-  </div>
 
 </div>
 
 </body>
+
+</html>

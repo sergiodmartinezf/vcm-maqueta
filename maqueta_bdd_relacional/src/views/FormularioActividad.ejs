@@ -1,12 +1,14 @@
 <%- include("template/headTemplate") %>
 <%- include("template/navbar1Template") %>
 
-<div class="container col-md-8">
-
+  <div class="p-4">
   <h2>ACTIVIDADES</h2>
   <h1>AGREGAR UNA NUEVA ACTIVIDAD</h1>
-
   <a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividad">Formulario de Nueva Actividad</a>
+  </div>
+
+<!-- FORMULARIO -->
+<div class="container rounded col-md-8" style="background-color: white;">
 
     <form action="/Formulario/FormularioActividad" method="POST">
 
@@ -108,7 +110,7 @@
         <label for="id_ciudad">Ciudad: </label>
         <input class="form-control" type="text" name="ciudad" id="id_ciudad"></input>
       </div>
-    </div>
+    </div> 
 
       <!-- FILA 9 -->
       <div class="form-group p-2">
@@ -151,10 +153,14 @@
       
     </form>
 
-  <div class="p-4">
-  <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">Guardar</a>
-  </div>
+</div>
 
+<div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end">
+  <a class="btn btn-block" href="/Formulario/FormularioActividadInformacion">
+    <i class="bi-floppy-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+  </a>
 </div>
 
 </body>
+
+</html>

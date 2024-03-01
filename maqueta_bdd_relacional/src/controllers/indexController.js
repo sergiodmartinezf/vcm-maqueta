@@ -1,7 +1,7 @@
 // Petición GET con página dinámica (muestra index)
 const mostrarIndex = async (req,res) => {
     try {
-        res.render("index", {tituloDinamico: "Título Dinámico"});
+        res.render("index", {tituloDinamico: "Título Dinámico"}); 
     } catch (error) {
         console.log(error);
     }

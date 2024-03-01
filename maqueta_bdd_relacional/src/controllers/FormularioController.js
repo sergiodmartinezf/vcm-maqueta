@@ -52,6 +52,33 @@ const mostrarFormularioProgramaInformacion = (req, res) => {
     res.render('FormularioProgramaInformacion');
 };
 
+// Mostrar Formulario (Búsqueda de Programa)
+const mostrarFormularioProgramaBuscar = async (req, res) => {
+
+    // Datos de vcm_programas
+    const vcm_programas = "select * from vcm_programas";
+
+    try {
+        // Datos de vcm_programas
+        const array_vcm_programasDB = await new Promise((resolve, reject) => {
+            database.all(vcm_programas, [], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        res.render('FormularioProgramaBuscar', {
+            // Datos de vcm_actividades
+            array_vcm_programas: array_vcm_programasDB,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 // ACTIVIDAD
 
 // Mostrar Formulario (Pág 3)
@@ -65,8 +92,30 @@ const mostrarFormularioActividadInformacion = (req, res) => {
 };
 
 // Mostrar Formulario (Búsqueda de Actividad)
-const mostrarFormularioActividadBuscar = (req, res) => {
-    res.render('FormularioActividadBuscar');
+const mostrarFormularioActividadBuscar = async (req, res) => {
+
+    // Datos de vcm_actividades
+    const vcm_actividades = "select * from vcm_actividades";
+
+    try {
+        // Datos de vcm_actividades
+        const array_vcm_actividadesDB = await new Promise((resolve, reject) => {
+            database.all(vcm_actividades, [], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        res.render('FormularioActividadBuscar', {
+            // Datos de vcm_actividades
+            array_vcm_actividades: array_vcm_actividadesDB,
+        });
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 // INTERACCIÓN
@@ -443,6 +492,7 @@ module.exports = {
     mostrarFormularioPrograma1,
     mostrarFormularioPrograma2,
     mostrarFormularioProgramaInformacion,
+    mostrarFormularioProgramaBuscar,
     mostrarFormularioActividad,
     mostrarFormularioActividadInformacion,
     mostrarFormularioInteraccion,

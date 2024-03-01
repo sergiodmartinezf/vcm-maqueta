@@ -1,11 +1,15 @@
 <%- include("template/headTemplate") %>
 <%- include("template/navbar1Template") %>
-
-<div class="container col-md-8">
   
+<!-- TITULO --> 
+<div class="p-4">
+  <h2>PROGRAMAS</h2>
   <h1>ELECCIÓN DEL TIPO DE PROGRAMA</h1> 
-
   <a href="/">Inicio</a> -> <a href="/Formulario/FormularioPrograma1">Nuevo Programa</a>
+</div>
+ 
+<!-- FORMULARIO -->
+<div class="col-md-8">
 
     <form class="w-100 p-4" action="/Formulario/FormularioPrograma1" method="POST">
       <div class="row p-2">
@@ -16,24 +20,21 @@
               <option value="2">Proyecto</option>
             </select>
         </div>
-        <div class="form-group col-md-6">
-          <label for="id_nombrePrograma" id="id_nombreProgramaLabel">Nombre del Programa: </label>
-          <input class="form-control" type="text" name="nombrePrograma" id="id_nombrePrograma">
-        </div>
+        <% if ('2' == '2') { %>
+          <%- include("template/nombreProgramaTemplate") %>
+        <% } %>
       </div>
 
-      <div class="p-4"> 
-        <button class="btn btn-success btn-block" type="submit">-></button>
-      </div>
-
-    </form> 
-
-  <!--
-  <div class="p-4"> 
-  <a class="btn btn-success btn-block" href="/Formulario/FormularioPrograma2">-></a>
-  </div>
-  -->
+    </form>
 
 </div>
 
+<div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end"> 
+  <button class="btn btn-block" type="submit">
+    <i class="bi-arrow-right-circle-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+  </button>
+</div>
+
 </body>
+
+</html>

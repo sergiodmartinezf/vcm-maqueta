@@ -2,14 +2,19 @@
 <%- include("template/navbar1Template") %>
 <%- include("template/navbar2Template") %>
 
-<div class="container col-md-8">
-
+<!-- TITULO --> 
+<div class="p-4">
   <h1>
     ACTIVIDADES
+  </h1>
+  <h2>
     COLABORADORES
   </h1>
-
   <a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a> -> <a href="/Formulario/FormularioColaboradores">Colaboradores</a>
+</div>
+
+<!-- FORMULARIO -->
+<div class="container rounded col-md-8" style="background-color: white;">
 
     <form action="/Formulario/FormularioColaboradores" method="POST">
 
@@ -79,3 +84,5 @@
 </div>
 
 </body>
+
+</html>

@@ -6,6 +6,7 @@ const {
     mostrarFormularioPrograma1,
     mostrarFormularioPrograma2,
     mostrarFormularioProgramaInformacion,
+    mostrarFormularioProgramaBuscar,
     mostrarFormularioActividad,
     mostrarFormularioActividadInformacion,
     mostrarFormularioInteraccion,
@@ -28,6 +29,9 @@ router.get('/FormularioPrograma2', mostrarFormularioPrograma2);
 
 // Muesta formulario (Información de Actividad)
 router.get('/FormularioProgramaInformacion', mostrarFormularioProgramaInformacion);
+
+// Muesta formulario (Búsqueda de Programa)
+router.get('/FormularioProgramaBuscar', mostrarFormularioProgramaBuscar);
 
 // Mostrar Formulario (Pág 3)
 router.get('/FormularioActividad', mostrarFormularioActividad);

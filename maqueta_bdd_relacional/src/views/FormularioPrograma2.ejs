@@ -1,11 +1,15 @@
 <%- include("template/headTemplate") %>
 <%- include("template/navbar1Template") %>
 
-<div class="container col-md-8">
-
+<!-- TITULO --> 
+<div class="p-4">
+  <h2>PROGRAMAS</h2>
   <h1>AGREGAR UN PROGRAMA</h1> 
-
   <a href="/">Inicio</a> -> <a href="/Formulario/FormularioPrograma1">Nuevo Programa</a> -> <a href="/Formulario/FormularioPrograma2">Formulario de Nuevo Programa</a>
+</div>
+
+<!-- FORMULARIO -->
+<div class="container rounded col-md-8" style="background-color: white;">
 
     <form class="w-100 p-4" action="/Formulario/FormularioPrograma2" method="POST">
 
@@ -38,10 +42,14 @@
       
     </form>
 
-  <div class="p-4">
-  <a class="btn btn-success btn-block" href="/Formulario/FormularioProgramaInformacion">Guardar</a>
-  </div>
+</div>
 
+<div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end">
+  <a class="btn btn-block" href="/Formulario/FormularioProgramaInformacion">
+    <i class="bi-floppy-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+  </a>
 </div>
 
 </body>
+
+</html>

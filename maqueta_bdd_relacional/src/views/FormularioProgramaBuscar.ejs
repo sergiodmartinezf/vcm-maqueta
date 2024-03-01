@@ -1,0 +1,64 @@
+<%- include("template/headTemplate") %>
+<%- include("template/navbar1Template") %>
+<%- include("template/navbar2Template") %>
+
+<div class="container col-md-8">
+
+  <h2>PROGRAMAS</h2>
+  <h1>BUSQUEDA DE PROGRAMA</h1>
+
+  <a href="/">Inicio</a> -> <a href="/Formulario/FormularioProgramaBuscar">Buscar</a>
+
+    <form action="/Formulario/FormularioColaboradores" method="POST">
+
+    <div class="row p-2">
+    <div class="form-group col-md-10">
+      <input class="form-control" type="text" name="WALWLEEALWDLWLFAWLDKF" id="id_WALWLEEALWDLWLFAWLDKF"></input>
+    </div>
+    <div class="form-group col-md-2">
+      <button class="btn btn-primary btn-block">BUSCAR</button>
+    </div>
+  </div>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Número</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Creado Por</th>
+        </tr>
+      </thead>
+      <tbody>
+         
+        <% if (array_vcm_programas.length > 0) { %>
+            <% array_vcm_programas.forEach(vcm_programas => { %>
+                <tr>
+                    <th scope="row">
+                      <%= vcm_programas.id_programa %>
+                    </th>
+                    <td>
+                      <%= vcm_programas.nombre %>
+                    </td>
+                    <td>
+                      <%= vcm_programas.id_tipo_programa %>
+                    </td>
+                    <td>
+                      <%= vcm_programas.fecha %>
+                    </td>
+                    <td>
+                      PLACEHOLDER
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+
+</html>
