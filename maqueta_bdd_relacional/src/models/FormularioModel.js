@@ -1,10 +1,10 @@
 // Se importa funcionalidad de base de datos 
-const database = require('../database');/**
+const database = require('../database');
 
 // Comandos sql para crear las relaciones del formulario
 
 // Tablas primarias
-const vcm_areas_financiamientos = 'CREATE TABLE vcm_areas_financiamientos(id_area_financiamiento VARCHAR(1) PRIMARY KEY, nombre VARCHAR(32));';
+/**const vcm_areas_financiamientos = 'CREATE TABLE vcm_areas_financiamientos(id_area_financiamiento VARCHAR(1) PRIMARY KEY, nombre VARCHAR(32));';
 
 const vcm_tipos_registros = 'CREATE TABLE vcm_tipos_registros(id_tipo_registro INTEGER PRIMARY KEY, nombre VARCHAR(128));';
 
@@ -70,66 +70,66 @@ database.run(vcm_actividades_tributaciones);*/
 // Comandos sql para realizar las inserciones necesarias para llenar el formulario
 
 // Tablas primarias
-//const vcm_areas_financiamientos_insert = 'INSERT INTO vcm_areas_financiamientos(id_area_financiamiento, nombre) VALUES ();';
+/**const vcm_areas_financiamientos_insert = 'INSERT INTO vcm_areas_financiamientos(id_area_financiamiento, nombre) VALUES ();';
 
-//const vcm_tipos_registros_insert = 'INSERT INTO vcm_tipos_registros(id_tipo_registro, nombre) VALUES ();';
+const vcm_tipos_registros_insert = 'INSERT INTO vcm_tipos_registros(id_tipo_registro, nombre) VALUES ();';
 
-//const vcm_tipos_programas_insert = 'INSERT INTO vcm_tipos_programas(id_tipo_programa, nombre) VALUES (?,?),(?,?);';
+const vcm_tipos_programas_insert = 'INSERT INTO vcm_tipos_programas(id_tipo_programa, nombre) VALUES (?,?),(?,?);';
 
-//const vcm_tipos_extra_colaboradores_insert = 'INSERT INTO vcm_tipos_extra_colaboradores(id_tipo_extra_colaborador, nombre) VALUES ();';
+const vcm_tipos_extra_colaboradores_insert = 'INSERT INTO vcm_tipos_extra_colaboradores(id_tipo_extra_colaborador, nombre) VALUES ();';
 
-//const vcm_estados_actividades_insert = 'INSERT INTO vcm_estados_actividades(id_estado_actividad, nombre) VALUES ();';
+const vcm_estados_actividades_insert = 'INSERT INTO vcm_estados_actividades(id_estado_actividad, nombre) VALUES ();';
 
-//const vcm_inst_administrativos_insert = 'INSERT INTO vcm_inst_administrativos(id_inst_administrativo, nombre) VALUES ();';
+const vcm_inst_administrativos_insert = 'INSERT INTO vcm_inst_administrativos(id_inst_administrativo, nombre) VALUES ();';
 
-//const vcm_tipos_destinatarios_insert = 'INSERT INTO vcm_tipos_destinatarios(id_tipo_destinatario, id_tipo_destinatario_origen, nombre, activo) VALUES ();';
+const vcm_tipos_destinatarios_insert = 'INSERT INTO vcm_tipos_destinatarios(id_tipo_destinatario, id_tipo_destinatario_origen, nombre, activo) VALUES ();';
 
-//const vcm_tipos_actividades_insert = 'INSERT INTO vcm_tipos_actividades(id_tipo_actividad, id_tipo_actividad_origen, nombre, descripcion, activo) VALUES ();';
+const vcm_tipos_actividades_insert = 'INSERT INTO vcm_tipos_actividades(id_tipo_actividad, id_tipo_actividad_origen, nombre, descripcion, activo) VALUES ();';
 
 // Tablas foráneas que dependen de tablas primarias
-//const vcm_tipos_financiamientos_insert = 'INSERT INTO vcm_tipos_financiamientos(id_tipo_financiamiento, id_area_financiamiento, nombre) VALUES ();';
+const vcm_tipos_financiamientos_insert = 'INSERT INTO vcm_tipos_financiamientos(id_tipo_financiamiento, id_area_financiamiento, nombre) VALUES ();';
 
-//const vcm_programas_insert = 'INSERT INTO vcm_programas(id_programa, id_tipo_programa, nombre, descripcion, id_unidad, fecha, id_programa_origen, activo) VALUES ();';
+const vcm_programas_insert = 'INSERT INTO vcm_programas(id_programa, id_tipo_programa, nombre, descripcion, id_unidad, fecha, id_programa_origen, activo) VALUES ();';
 
-//const vcm_actividades_insert = 'INSERT INTO vcm_actividades(id_actividad, nombre, descripcion, objetivo, id_tipo_actividad, id_tipo_destinatario, id_inst_administrativo, lugar, fecha_inicio, fecha_termino, fecha, id_estado_actividad, id_grupo, activo, id_campus) VALUES ();';
+const vcm_actividades_insert = 'INSERT INTO vcm_actividades(id_actividad, nombre, descripcion, objetivo, id_tipo_actividad, id_tipo_destinatario, id_inst_administrativo, lugar, fecha_inicio, fecha_termino, fecha, id_estado_actividad, id_grupo, activo, id_campus) VALUES ();';
 
 // Caso particular
-//const fye_encuestados_insert = 'INSERT INTO fye_encuestados(id_encuestado, rut, id_encuesta, id_tipo_encuesta, rut_objetivo, fecha_inicio, fecha_termino) VALUES ();';
+const fye_encuestados_insert = 'INSERT INTO fye_encuestados(id_encuestado, rut, id_encuesta, id_tipo_encuesta, rut_objetivo, fecha_inicio, fecha_termino) VALUES ();';
 
 
 // Tablas foráneas que dependen de tablas primarias y foráneas
-//const vcm_actividades_financiamiento_insert = 'INSERT INTO vcm_actividades_financiamiento(id_actividad, id_tipo_financiamiento, monto, horas_hombre) VALUES ();';
+const vcm_actividades_financiamiento_insert = 'INSERT INTO vcm_actividades_financiamiento(id_actividad, id_tipo_financiamiento, monto, horas_hombre) VALUES ();';
 
-//const vcm_actividades_registros_insert = 'INSERT INTO vcm_actividades_registros(id_actividad, id_tipo_registro, ruta, descripcion) VALUES ();';
+const vcm_actividades_registros_insert = 'INSERT INTO vcm_actividades_registros(id_actividad, id_tipo_registro, ruta, descripcion) VALUES ();';
 
-//const vcm_programas_actividades_insert = 'INSERT INTO vcm_programas_actividades(id_programa, id_actividad) VALUES ();';
+const vcm_programas_actividades_insert = 'INSERT INTO vcm_programas_actividades(id_programa, id_actividad) VALUES ();';
 
-//const vcm_actividades_encuestados_insert = 'INSERT INTO vcm_actividades_encuestados(id_actividad, id_encuestado) VALUES ();';
+const vcm_actividades_encuestados_insert = 'INSERT INTO vcm_actividades_encuestados(id_actividad, id_encuestado) VALUES ();';
 
-//const vcm_actividades_responsables_insert = 'INSERT INTO vcm_actividades_responsables(id_actividad, rut, tipo) VALUES ();';
+const vcm_actividades_responsables_insert = 'INSERT INTO vcm_actividades_responsables(id_actividad, rut, tipo) VALUES ();';
 
-//const vcm_actividades_ex_colaborador_insert = 'INSERT INTO vcm_actividades_ex_colaborador(id_actividad, id_tipo_extra_colaborador, rut, nombres, apellido_paterno, apellido_materno) VALUES ();';
+const vcm_actividades_ex_colaborador_insert = 'INSERT INTO vcm_actividades_ex_colaborador(id_actividad, id_tipo_extra_colaborador, rut, nombres, apellido_paterno, apellido_materno) VALUES ();';
 
-//const vcm_actividades_tributaciones_insert = 'INSERT INTO vcm_actividades_tributaciones(id_actividad, id_unidad) VALUES ();';
+const vcm_actividades_tributaciones_insert = 'INSERT INTO vcm_actividades_tributaciones(id_actividad, id_unidad) VALUES ();';
 
 // Hace correr comando sql
-//database.run(vcm_areas_financiamientos_insert,[]);
-//database.run(vcm_tipos_registros_insert,[]);
-//database.run(vcm_tipos_programas_insert,[1,'Programa',2,'Proyecto']);
-//database.run(vcm_tipos_extra_colaboradores_insert,[]);
-//database.run(vcm_estados_actividades_insert,[]);
-//database.run(vcm_inst_administrativos_insert,[]);
-//database.run(vcm_tipos_destinatarios_insert,[]);
-//database.run(vcm_tipos_actividades_insert,[]);
-//database.run(vcm_tipos_financiamientos_insert,[]);
-//database.run(vcm_programas_insert,[]);
-//database.run(vcm_actividades_insert,[]);
-//database.run(fye_encuestados_insert,[]);
-//database.run(vcm_actividades_financiamiento_insert,[]);
-//database.run(vcm_actividades_registros_insert,[]);
-//database.run(vcm_programas_actividades_insert,[]);
-//database.run(vcm_actividades_encuestados_insert,[]);
-//database.run(vcm_actividades_responsables_insert,[]);
-//database.run(vcm_actividades_ex_colaborador_insert,[]);
-//database.run(vcm_actividades_tributaciones_insert,[]);
-
+database.run(vcm_areas_financiamientos_insert,[]);
+database.run(vcm_tipos_registros_insert,[]);
+database.run(vcm_tipos_programas_insert,[1,'Programa',2,'Proyecto']);
+database.run(vcm_tipos_extra_colaboradores_insert,[]);
+database.run(vcm_estados_actividades_insert,[]);
+database.run(vcm_inst_administrativos_insert,[]);
+database.run(vcm_tipos_destinatarios_insert,[]);
+database.run(vcm_tipos_actividades_insert,[]);
+database.run(vcm_tipos_financiamientos_insert,[]);
+database.run(vcm_programas_insert,[]);
+database.run(vcm_actividades_insert,[]);
+database.run(fye_encuestados_insert,[]);
+database.run(vcm_actividades_financiamiento_insert,[]);
+database.run(vcm_actividades_registros_insert,[]);
+database.run(vcm_programas_actividades_insert,[]);
+database.run(vcm_actividades_encuestados_insert,[]);
+database.run(vcm_actividades_responsables_insert,[]);
+database.run(vcm_actividades_ex_colaborador_insert,[]);
+database.run(vcm_actividades_tributaciones_insert,[]);*/
+ 

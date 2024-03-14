@@ -25,7 +25,6 @@ app.use(express.static(__dirname + "/public"));
 
 // Llamada a rutas
 app.use('/', require('./routes/indexRouter'));
-app.use('/FormTest', require('./routes/FormTestRouter'));
 app.use('/Formulario', require('./routes/FormularioRouter'));
 
 // Exportar confguración de aplicación

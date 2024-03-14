@@ -1,27 +1,33 @@
 <%- include("template/headTemplate") %>
 <%- include("template/navbar1Template") %>
 
-<!-- TITULO --> 
+<!-- TITULO -->
 <div class="p-4">
   <h2>PROGRAMAS</h2>
   <h1>AGREGAR UN PROGRAMA</h1> 
-  <a href="/">Inicio</a> -> <a href="/Formulario/FormularioPrograma1">Nuevo Programa</a> -> <a href="/Formulario/FormularioPrograma2">Formulario de Nuevo Programa</a>
+  <a href="/">Inicio</a> -> <a href="/Formulario/Programa1">Nuevo Programa</a> -> Formulario de Nuevo Programa
 </div>
 
 <!-- FORMULARIO -->
 <div class="container rounded col-md-8" style="background-color: white;">
 
-    <form class="w-100 p-4" action="/Formulario/FormularioPrograma2" method="POST">
+    <form class="w-100 p-4" action="/Formulario/Programa2" method="POST">
 
       <div class="form-group p-2">
         <label for="id_nombrePrograma">Nombre del Programa: </label>
-        <input class="form-control" type="text" name="nombrePrograma" id="id_nombrePrograma"></input>
+        <input class="form-control" type="text" name="nombrePrograma" id="id_nombrePrograma" value="nombrePrograma1"></input>
       </div>
 
       <div class="row p-2">
         <div class="form-group col-md-6">
         <label for="id_tipoPrograma">Tipo del Programa: </label>
-        <label class="form-control" id="id_tipoPrograma">TEXTO</label>
+        <label class="form-control" id="id_tipoPrograma">
+          <% if (idTipoPrograma == 1) { %>
+            Programa
+          <% } else { %>
+            Proyecto
+          <% } %>
+        </label>
         </div>
       </div>
       <div class="form-group p-2">
@@ -39,16 +45,17 @@
         </div>
         <%- include("template/unidadAsociada1Template") %>
       </div>
-      
-    </form>
 
 </div>
 
 <div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end">
-  <a class="btn btn-block" href="/Formulario/FormularioProgramaInformacion">
+  <button class="btn btn-block" type="submit">
     <i class="bi-floppy-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+  </button>
   </a>
 </div>
+
+</form>
 
 </body>
 

@@ -10,7 +10,7 @@
   <h1>
     ACTIVIDAD
   </h1>
-  <a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a> -> <a href="/Formulario/FormularioRegistros">Registros</a>
+  <a href="/">Inicio</a> -> <a href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>"><%= actividad.nombre %></a> -> Registros
 </div>
 
   <h2>
@@ -20,7 +20,7 @@
 <!-- FORMULARIO -->
 <div class="container rounded col-md-8" style="background-color: white;">
 
-    <form action="/Formulario/FormularioRegistros" method="POST">
+    <form action="/Formulario/Registros" method="POST">
 
       <!-- SECCIÓN 1 --> 
       <div class="container">
@@ -33,7 +33,7 @@
 
     <!--
     <div>
-      <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">FormularioActividadInformacion</a>
+      <a class="btn btn-success btn-block" href="/Formulario/ActividadInformacion">FormularioActividadInformacion</a>
     </div>
     -->
 

@@ -2,7 +2,7 @@
 <%- include("template/navbar1Template") %>
 <%- include("template/navbar2Template") %>
 
-<!-- TITULO --> 
+<!-- TITULO -->
 <div class="p-4">
   <h2>
     TRIBUTACIONES DE LA
@@ -10,18 +10,18 @@
   <h1>
     ACTIVIDAD
   </h1>
-  <a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a> -> <a href="/Formulario/FormularioTributaciones">Tributaciones</a>
+  <a href="/">Inicio</a> -> <a href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>"><%= actividad.nombre %></a> -> Tributaciones
 </div>
 
 <!-- FORMULARIO -->
 <div class="container rounded col-md-8" style="background-color: white;">
 
-    <form action="/Formulario/FormularioTributaciones" method="POST">
+    <form action="/Formulario/Tributaciones" method="POST">
 
       <div class="row p-2">
       <div class="form-group col-md-5">
       <label for="id_tipoUnidadTributaciones">Tipo de Unidad</label>
-      <select class="form-control" name="tipoUnidadTributaciones" id="id_tipoUnidadTributaciones">
+      <select class="form-control" name="tipoUnidadTributaciones" id="id_tipoUnidadTributaciones" required>
         <option value="tipoUnidadTributaciones_institucional">Institucional</option>
         <option value="tipoUnidadTributaciones_departamento">Departamento</option>
         <option value="tipoUnidadTributaciones_opcion3">tipoUnidadTributaciones_opcion3</option>
@@ -29,7 +29,7 @@
       </div>
       <div class="form-group col-md-5">
       <label for="id_unidadTributaciones">Unidad</label>
-      <select class="form-control" name="unidadTributaciones" id="id_unidadTributaciones">
+      <select class="form-control" name="unidadTributaciones" id="id_unidadTributaciones" required>
         <option value="unidadTributaciones_opcion1">unidadTributaciones_opcion1</option>
         <option value="unidadTributaciones_opcion2">unidadTributaciones_opcion2</option>
         <option value="unidadTributaciones_opcion3">unidadTributaciones_opcion3</option>
@@ -57,7 +57,7 @@
     </div>
 
   <div class="p-4">
-    <a class="btn btn-success btn-block" href="/Formulario/FormularioActividadInformacion">Guardar</a>
+    <a class="btn btn-success btn-block" href="/Formulario/ActividadInformacion">Guardar</a>
   </div>
 
 </body> 

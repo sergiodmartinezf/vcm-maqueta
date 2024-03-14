@@ -1,59 +1,135 @@
 // Se importa funcionalidad de base de datos 
 const database = require('../database');
 
+// FUNCIONES
+const array_dias = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+const array_mes = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+function generarFecha(diaSemana, diaNumero, mes, ano, hora, minuto) {
+    let fechaFinal='';
+    fechaFinal = array_dias[diaSemana] + ', ' + String(diaNumero) + ' ' + array_mes[mes] + ' ' + String(ano) + ', ' + String(hora) + ':' + String(minuto);
+    if (hora < 12) {
+        fechaFinal = fechaFinal + 'am';
+    } else {
+        fechaFinal = fechaFinal + 'pm';
+    };
+    return fechaFinal;
+};
+
 // PROGRAMA
 
 // Mostrar Formulario
-const mostrarFormularioPrograma1 = (req, res) => {
-    res.render('FormularioPrograma1');
+const mostrarPrograma1 = (req, res) => {
+    res.render('Programa1');
 };
 
 // Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
-const guardarFormularioPrograma1 = async (req, res) => {
+const guardarPrograma1 = async (req, res) => {
     const body = req.body;
-    console.log('BODY FormularioPrograma1',body);
+    console.log('BODY Programa1',body);
     try {
-        // Instrucción sql para testing de base de datos relacional sqlite3
-        const guardarFormularioPrograma1 = "insert into vcm_programas(id_programa,id_tipo_programa,nombre) values (?,?,?);";
+        res.render('Programa2', {
+            idTipoPrograma: body.tipoPrograma,
+            nombrePrograma1: body.nombrePrograma,
+            error: false
+        });
 
-        // Hace correr comando sql
-        database.run(guardarFormularioPrograma1,[1, body.tipoPrograma, body.nombrePrograma]);
-
-        res.redirect('/Formulario/FormularioPrograma2'); 
     } catch (error) {
         console.log(error);
     }
 };
 
 // Mostrar Formulario (Pág 2)
-const mostrarFormularioPrograma2 = (req, res) => {
-    res.render('FormularioPrograma2');
+const mostrarPrograma2 = (req, res) => {
+    res.render('Programa2');
 };
 
 // Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
-const guardarFormularioPrograma2 = async (req, res) => {
+const guardarPrograma2 = async (req, res) => {
     const body = req.body;
-    console.log('BODY FormularioPrograma2',body);
+    console.log('BODY Programa2',body);
     try {
         // Instrucción sql para testing de base de datos relacional sqlite3
-        const guardarFormularioPrograma2 = "INSERT INTO vcm_programas() VALUES () WHERE id_programa=?;";
+        //const guardarPrograma2 = "insert into vcm_programas(id_programa, id_tipo_programa, nombre, descripcion, id_unidad, fecha) values (?,?,?,?,?,?);";
+        const guardarPrograma2 = "insert into vcm_programas(id_programa, nombre, descripcion, id_unidad, fecha) values (?,?,?,?,?);";
+
+        // Cálculo de nuevo id
+        const cantidadProgramas = "SELECT COUNT(DISTINCT id_programa) as cantProgramas FROM vcm_programas";
+        let idPrograma = await new Promise((resolve, reject) => {
+            database.all(cantidadProgramas, [], (error, nuevoId) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(nuevoId)
+            });
+        });
+
+        // De lista a objeto
+        nuevoIdPrograma = idPrograma[0].cantProgramas + 1;
+        
+        console.log('nuevoIdPrograma=',nuevoIdPrograma);
+
+        // Fecha
+        //const diaSemanaActual = new Date().getDay();
+        const diaNumeroActual = new Date().getDate();
+        const mesActual = new Date().getMonth();
+        const anoActual = new Date().getFullYear();
+        //const horaActual = new Date().getHours();
+        //const minutoActual = new Date().getMinutes(); 
+        //const fechaActual = generarFecha(diaSemanaActual, diaNumeroActual, mesActual, anoActual, horaActual, minutoActual);
+        const fechaActual = anoActual + '-' + mesActual + '-' + diaNumeroActual;
+
+        console.log('fechaActual=',fechaActual);
 
         // Hace correr comando sql
-        database.run(guardarFormularioPrograma2,[]);
+        database.run(guardarPrograma2,[nuevoIdPrograma/**, idTipoPrograma*/, body.nombrePrograma, body.descripcion, body.tipoUnidadAsociada, fechaActual]);
 
-        res.redirect('/Formulario/FormularioPrograma2'); 
+        res.redirect(`/Formulario/ProgramaInformacion/${nuevoIdPrograma}`); 
     } catch (error) {
         console.log(error);
     }
 };
 
 // Mostrar Formulario (Información del Programa)
-const mostrarFormularioProgramaInformacion = (req, res) => {
-    res.render('FormularioProgramaInformacion');
+const mostrarProgramaInformacion = async (req, res) => {
+    const id = req.params.id;
+
+    // Instrucción sql para buscar 
+    const leerPrograma = "SELECT * FROM vcm_programas WHERE id_programa=?;";
+    try {
+        // Buscar dato con id de url y se imprime en consola
+        let programaDB = await new Promise((resolve, reject) => {
+            database.all(leerPrograma, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        // De lista a objeto
+        programaDB = programaDB[0];
+
+        console.log("leerPrograma programaDB =",programaDB);
+
+        // Muestra dato encontrado
+        res.render('ProgramaInformacion', {
+            programa: programaDB,
+            error: false
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.render('ProgramaInformacion', {
+            error: true,
+            mensaje: 'No se encontró el dato con ese id'
+        });
+    }
 };
 
-// Mostrar Formulario (Búsqueda de Programa)
-const mostrarFormularioProgramaBuscar = async (req, res) => {
+// Mostrar Formulario (Búsqueda de Programa) 
+const mostrarProgramaBuscar = async (req, res) => {
 
     // Datos de vcm_programas
     const vcm_programas = "select * from vcm_programas";
@@ -70,7 +146,7 @@ const mostrarFormularioProgramaBuscar = async (req, res) => {
             });
         });
 
-        res.render('FormularioProgramaBuscar', {
+        res.render('ProgramaBuscar', {
             // Datos de vcm_actividades
             array_vcm_programas: array_vcm_programasDB,
         });
@@ -82,17 +158,75 @@ const mostrarFormularioProgramaBuscar = async (req, res) => {
 // ACTIVIDAD
 
 // Mostrar Formulario (Pág 3)
-const mostrarFormularioActividad = (req, res) => {
-    res.render('FormularioActividad');
+const mostrarActividad = (req, res) => {
+    res.render('Actividad');
 };
 
 // Mostrar Formulario (Información de Actividad)
-const mostrarFormularioActividadInformacion = (req, res) => {
-    res.render('FormularioActividadInformacion');
+const mostrarActividadInformacion = async (req, res) => {
+    const id = req.params.id;
+
+    // Instrucción sql para buscar 
+    const leerActividad = "SELECT * FROM vcm_actividades WHERE id_actividad=?;";
+
+    // Obtener Responsable
+    const leerAcademico = "SELECT vcm_academicos.nombre FROM vcm_academicos,vcm_actividades WHERE vcm_actividades.id_academico=vcm_academicos.id_academico AND vcm_actividades.id_actividad=?;";
+    
+    try {
+        // Buscar dato con id de url y se imprime en consola
+        let actividadDB = await new Promise((resolve, reject) => {
+            database.all(leerActividad, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        // De lista a objeto
+        actividadDB = actividadDB[0];
+
+        console.log("leerActividad actividadDB =",actividadDB);
+
+
+        
+        // Buscar dato con id de url y se imprime en consola
+        let academicoDB = await new Promise((resolve, reject) => {
+            database.all(leerAcademico, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        // De lista a objeto
+        academicoDB = academicoDB[0];
+
+        console.log("leerAcademico academicoDB =",academicoDB);
+
+
+
+        // Muestra dato encontrado
+        res.render('ActividadInformacion', {
+            actividad: actividadDB,
+            academico: academicoDB,
+            error: false
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.render('ActividadInformacion', {
+            error: true,
+            mensaje: 'No se encontró el dato con ese id'
+        });
+    }
 };
 
 // Mostrar Formulario (Búsqueda de Actividad)
-const mostrarFormularioActividadBuscar = async (req, res) => {
+const mostrarActividadBuscar = async (req, res) => {
 
     // Datos de vcm_actividades
     const vcm_actividades = "select * from vcm_actividades";
@@ -109,7 +243,7 @@ const mostrarFormularioActividadBuscar = async (req, res) => {
             });
         });
 
-        res.render('FormularioActividadBuscar', {
+        res.render('ActividadBuscar', {
             // Datos de vcm_actividades
             array_vcm_actividades: array_vcm_actividadesDB,
         });
@@ -118,37 +252,308 @@ const mostrarFormularioActividadBuscar = async (req, res) => {
     }
 };
 
+// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
+const guardarActividad = async (req, res) => {
+    const body = req.body;
+    console.log('BODY Actividad',body);
+    try {
+        // Instrucción sql para testing de base de datos relacional sqlite3
+        const guardarActividad = "insert into vcm_actividades(id_actividad, nombre, descripcion, objetivo, id_tipo_actividad, id_tipo_destinatario, id_inst_administrativo, lugar, fecha_inicio, fecha_termino, fecha, id_estado_actividad, id_campus) values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+
+        // Cálculo de nuevo id
+        const cantidadActividades = "SELECT COUNT(DISTINCT id_actividad) as cantActividades FROM vcm_actividades";
+        let idActividad = await new Promise((resolve, reject) => {
+            database.all(cantidadActividades, [], (error, nuevoId) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(nuevoId)
+            });
+        });
+
+        // De lista a objeto
+        nuevoIdActividad = idActividad[0].cantActividades + 1;
+        
+        console.log('nuevoIdActividad=',nuevoIdActividad);
+
+        // Fecha
+        //const diaSemanaActual = new Date().getDay();
+        const diaNumeroActual = new Date().getDate();
+        const mesActual = new Date().getMonth();
+        const anoActual = new Date().getFullYear();
+        //const horaActual = new Date().getHours();
+        //const minutoActual = new Date().getMinutes(); 
+        //const fechaActual = generarFecha(diaSemanaActual, diaNumeroActual, mesActual, anoActual, horaActual, minutoActual);
+        const fechaActual = anoActual + '-' + mesActual + '-' + diaNumeroActual;
+
+        console.log('fechaActual=',fechaActual);
+
+        // Lugar
+        const lugar = body.direccion + ' ' + '#' + body.numero + ', ' + body.ciudad + ', Chile';
+
+        console.log('lugar=',lugar);
+
+
+        // Hace correr comando sql
+        database.run(guardarActividad,[nuevoIdActividad, body.nombre, body.descripcion, body.objetivo, body.tipoActividad, body.tipoDestinatario, body.institucionesAdministrativas, lugar, body.fechaInicio, body.fechaTermino, fechaActual, 'Abierto', body.campusSede]);
+
+        res.redirect(`/Formulario/ActividadInformacion/${nuevoIdActividad}`); 
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 // INTERACCIÓN
 
 // Mostrar Formulario (Interacción)
-const mostrarFormularioInteraccion = (req, res) => {
-    res.render('FormularioInteraccion');
+const mostrarInteraccion = async (req, res) => {
+    const id = req.params.id;
+
+    // Instrucción sql para buscar 
+    const leerActividad = "SELECT id_actividad,nombre FROM vcm_actividades WHERE id_actividad=?;";
+    
+    try {
+        // Buscar dato con id de url y se imprime en consola
+        let actividadDB = await new Promise((resolve, reject) => {
+            database.all(leerActividad, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        // De lista a objeto
+        actividadDB = actividadDB[0];
+
+        console.log("leerActividad actividadDB =",actividadDB);
+
+        // Muestra dato encontrado
+        res.render('Interaccion', {
+            actividad: actividadDB,
+            error: false
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.render('Interaccion', {
+            error: true,
+            mensaje: 'No se encontró el dato con ese id'
+        });
+    }
 };
 
 // REGISTROS
 
 // Mostrar Formulario (Registros)
-const mostrarFormularioRegistros = (req, res) => {
-    res.render('FormularioRegistros');
+const mostrarRegistros = async (req, res) => {
+    const id = req.params.id;
+
+    // Instrucción sql para buscar 
+    const leerActividad = "SELECT id_actividad,nombre FROM vcm_actividades WHERE id_actividad=?;";
+    
+    try {
+        // Buscar dato con id de url y se imprime en consola
+        let actividadDB = await new Promise((resolve, reject) => {
+            database.all(leerActividad, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        // De lista a objeto
+        actividadDB = actividadDB[0];
+
+        console.log("leerActividad actividadDB =",actividadDB);
+
+        // Muestra dato encontrado
+        res.render('Registros', {
+            actividad: actividadDB,
+            error: false
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.render('Registros', {
+            error: true,
+            mensaje: 'No se encontró el dato con ese id'
+        });
+    }
 };
 
 // COLABORADORES
 
 // Mostrar Formulario (Colaboradores)
-const mostrarFormularioColaboradores = (req, res) => {
-    res.render('FormularioColaboradores');
+const mostrarColaboradores = async (req, res) => {
+    const id = req.params.id;
+
+    // Instrucción sql para buscar 
+    const leerActividad = "SELECT id_actividad,nombre FROM vcm_actividades WHERE id_actividad=?;";
+    
+    try {
+        // Buscar dato con id de url y se imprime en consola
+        let actividadDB = await new Promise((resolve, reject) => {
+            database.all(leerActividad, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        // De lista a objeto
+        actividadDB = actividadDB[0];
+
+        console.log("leerActividad actividadDB =",actividadDB);
+
+        // Muestra dato encontrado
+        res.render('Colaboradores', {
+            actividad: actividadDB,
+            error: false
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.render('Colaboradores', {
+            error: true,
+            mensaje: 'No se encontró el dato con ese id'
+        });
+    }
 };
 
 // TRIBUTACIONES
 
 // Mostrar Formulario (Tributaciones)
-const mostrarFormularioTributaciones = (req, res) => {
-    res.render('FormularioTributaciones');
+const mostrarTributaciones = async (req, res) => {
+    const id = req.params.id;
+
+    // Instrucción sql para buscar 
+    const leerActividad = "SELECT id_actividad,nombre FROM vcm_actividades WHERE id_actividad=?;";
+    
+    try {
+        // Buscar dato con id de url y se imprime en consola
+        let actividadDB = await new Promise((resolve, reject) => {
+            database.all(leerActividad, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        // De lista a objeto
+        actividadDB = actividadDB[0];
+
+        console.log("leerActividad actividadDB =",actividadDB);
+
+        // Muestra dato encontrado
+        res.render('Tributaciones', {
+            actividad: actividadDB,
+            error: false
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.render('Tributaciones', {
+            error: true,
+            mensaje: 'No se encontró el dato con ese id'
+        });
+    }
+};
+
+// ACADÉMICOS
+
+// Mostrar Académicos (Búsqueda de Académico)
+const mostrarAcademicoBuscar = async (req, res) => {
+
+    // Datos de vcm_programas
+    const vcm_academicos = "select * from vcm_academicos";
+
+    try {
+        // Datos de vcm_programas
+        const array_vcm_academicosDB = await new Promise((resolve, reject) => {
+            database.all(vcm_academicos, [], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        res.render('AcademicoBuscar', {
+            // Datos de vcm_actividades
+            array_vcm_academicos: array_vcm_academicosDB,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+// Obtiene académico específico de la base de datos (Read) 
+const leerAcademico = async (req, res) => {
+    const id = req.params.id;
+
+    // Instrucción sql para buscar 
+    const leerAcademico = "SELECT * FROM vcm_academicos WHERE id_academico=?;";
+    const leerAcademicoActividades = "SELECT * FROM vcm_actividades WHERE id_academico=?;";
+    try {
+        // Buscar dato con id de url y se imprime en consola
+        let academicoDB = await new Promise((resolve, reject) => {
+            database.all(leerAcademico, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        // De lista a objeto
+        academicoDB = academicoDB[0];
+
+        console.log("leerAcademico academicoDB =",academicoDB);
+
+        // Buscar actividades del académico
+        let academicoActividadDB = await new Promise((resolve, reject) => {
+            database.all(leerAcademicoActividades, [id], (error, filas) => {
+                if (error) {
+                    console.error(error.message);
+                    reject(error);
+                };
+                resolve(filas)
+            });
+        });
+
+        console.log("leerAcademico academicoActividadDB =",academicoActividadDB);
+
+        // Muestra dato encontrado
+        res.render('AcademicoResumen', {
+            academicoActividad: academicoActividadDB,
+            academico: academicoDB,
+            error: false
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.render('AcademicoResumen', {
+            error: true,
+            mensaje: 'No se encontró el dato con ese id'
+        });
+    }
+
 };
 
 
+// DATOS
 
-// Para ver datos
 // Muestra datos en base de datos ingresados por el formulario
 const verDatosFormulario = async (req, res) => {
 
@@ -421,7 +826,7 @@ const verDatosFormulario = async (req, res) => {
         });
 
 
-        res.render("FormularioDatos", {
+        res.render("Datos", {
 
             // Datos de vcm_areas_financiamientos 
             array_vcm_areas_financiamientos: array_vcm_areas_financiamientosDB,
@@ -489,19 +894,23 @@ const verDatosFormulario = async (req, res) => {
 // Exportar router 
 module.exports = {
     // Renderización de secciones de formulario
-    mostrarFormularioPrograma1,
-    mostrarFormularioPrograma2,
-    mostrarFormularioProgramaInformacion,
-    mostrarFormularioProgramaBuscar,
-    mostrarFormularioActividad,
-    mostrarFormularioActividadInformacion,
-    mostrarFormularioInteraccion,
-    mostrarFormularioRegistros,
-    mostrarFormularioColaboradores,
-    mostrarFormularioTributaciones,
-    mostrarFormularioActividadBuscar,
+    mostrarPrograma1,
+    guardarPrograma1,
+    mostrarPrograma2,
+    guardarPrograma2,
+    mostrarProgramaInformacion,
+    mostrarProgramaBuscar,
+    mostrarActividad,
+    mostrarActividadInformacion,
+    mostrarActividadBuscar,
+    guardarActividad,
+    mostrarInteraccion,
+    mostrarAcademicoBuscar,
+    leerAcademico,
+    mostrarRegistros,
+    mostrarColaboradores,
+    mostrarTributaciones,
 
     // Interacciones de formulario con base de datos
     verDatosFormulario,
-    guardarFormularioPrograma1,
 };

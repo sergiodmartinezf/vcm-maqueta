@@ -2,67 +2,7 @@
 <%- include("template/navbar1Template") %>
 <%- include("template/navbar2Template") %>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Recuerde rellenar lo siguiente:</h5><!--
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>-->
-      </div>
-      <div class="modal-body">
-
-      <!-- FILA 1 -->
-      <div class="row p-2">
-        <div class="col-md-6">
-      
-          <a type="button" class="container btn btn-block" href="/Formulario/FormularioInteraccion">
-            <i class="bi-file-text-fill" style="font-size: 2rem; color: dodgerblue;"></i>
-            <div>Interacción</div>
-          </a>
-
-        </div>
-        <div class="col-md-6">
-
-          <a type="button" class="container btn btn-block" href="/Formulario/FormularioRegistros">
-            <i class="bi-image-fill" style="font-size: 2rem; color: dodgerblue;"></i>
-            <div>Registros</div>
-          </a>
-
-        </div>
-      </div>
-      <!-- FILA 2 -->
-      <div class="row p-2">
-        <div class="col-md-6">
-
-          <a type="button" class="container btn btn-block" href="/Formulario/FormularioColaboradores">
-            <i class="bi-people-fill" style="font-size: 2rem; color: dodgerblue;"></i>
-            <div>Colaboradores</div>
-          </a>
-
-        </div>
-        <div class="col-md-6">
-
-          <a type="button" class="container btn btn-block" href="/Formulario/FormularioTributaciones">
-            <i class="bi-currency-dollar" style="font-size: 2rem; color: dodgerblue;"></i>
-            <div>Tributaciones</div>
-          </a>
-
-        </div>
-      </div>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button><!--
-        <button type="button" class="btn btn-primary">Save changes</button>-->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TITULO --> 
+<!-- TITULO -->
 <div class="p-4">
 <h2>
   INFORMACIÓN DE LA
@@ -70,11 +10,14 @@
 <h1>
   ACTIVIDAD
 </h1>
-<a href="/">Inicio</a> -> <a href="/Formulario/FormularioActividadInformacion">NOMBREACTIVIDAD</a>
+<a href="/">Inicio</a> -> <%= actividad.nombre %> <!--<a href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>"><%= actividad.nombre %></a>-->
 </div>
 
-<!-- FORMULARIO -->
-<div class="container rounded col-md-8" style="background-color: white;">
+<!-- FORMULARIO Y EXTRAS -->
+<div class="row p-2">
+
+<!-- FORMULARIO --> 
+<div class="container rounded col-md-6" style="background-color: white;">
  
     <!-- Datos desplegados -->
     <table class="table">
@@ -84,7 +27,7 @@
               Nombre de la Actividad
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= actividad.nombre %>
             </td>
           </tr>
           <tr>
@@ -92,7 +35,15 @@
               Campus
             </th>
             <td>
-              TEXTOOOOOOOO
+              <% if (actividad.id_campus == 1) { %>
+                Osorno
+              <% } else if (actividad.id_campus == 2) { %>
+                Puerto Montt
+              <% } else if (actividad.id_campus == 3) { %>
+                Chiloé
+              <% } else { %>
+                Santiago
+              <% } %>
             </td>
           </tr>
           <tr>
@@ -100,7 +51,7 @@
               Descripción
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= actividad.descripcion %>
             </td>
           </tr>
           <tr>
@@ -108,7 +59,7 @@
               Objetivo
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= actividad.objetivo %>
             </td>
           </tr>
           <tr>
@@ -116,7 +67,15 @@
               Tipo de Actividad
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= actividad.id_tipo_actividad %>
+            </td>
+          </tr>
+          <tr>
+            <th scope="col">
+              Sistema
+            </th>
+            <td>
+              Sistema Público
             </td>
           </tr>
           <tr>
@@ -124,7 +83,7 @@
               Socio Comunitario
             </th>
             <td>
-              TEXTOOOOOOOO
+              
             </td>
           </tr>
           <tr>
@@ -132,7 +91,7 @@
               Tipo de Destinatario
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= actividad.id_tipo_destinatario %>
             </td>
           </tr>
           <tr>
@@ -140,7 +99,7 @@
               Fecha
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= actividad.fecha %>
             </td>
           </tr>
           <tr>
@@ -148,7 +107,7 @@
               Lugar
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= actividad.lugar %>
             </td>
           </tr>
           <tr>
@@ -156,7 +115,7 @@
               Instrumento Administrativo
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= actividad.id_inst_administrativo %>
             </td>
           </tr>
           <tr>
@@ -164,7 +123,7 @@
               Financiamiento
             </th>
             <td>
-              TEXTOOOOOOOO
+              
             </td>
           </tr>
           <tr>
@@ -172,7 +131,7 @@
               Responsable
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= academico.nombre %>
             </td>
           </tr>
           <tr>
@@ -180,7 +139,11 @@
               Estado
             </th>
             <td>
-              TEXTOOOOOOOO
+              <% if (actividad.id_estado_actividad == 1) { %>
+                Abierto
+              <% } else { %>
+                Cerrado
+              <% } %>
             </td>
           </tr>
         </tbody>
@@ -206,7 +169,7 @@
                 Nombre
               </th>
               <td>
-                TEXTOOOOOOOO
+                
               </td>
             </tr>
             <tr>
@@ -214,7 +177,7 @@
                 Fecha
               </th>
               <td>
-                TEXTOOOOOOOO
+                
               </td>
             </tr>
           </tbody>
@@ -222,6 +185,54 @@
 
       <!--<a class="btn btn-success btn-block" href="/">INDEX</a>-->
   
+</div>
+
+
+
+<!-- PESTAÑAS EXTRA -->
+<div class="col-md-5">
+
+  <!-- FILA 1 -->
+  <div class="p-2">
+    <div class="container rounded col-md-6" style="background-color: white;">
+      <a type="button" class="container btn btn-block" href="/Formulario/Interaccion">
+        <i class="bi-file-text-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+        <div>Interacción</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FILA 2 -->
+  <div class="p-2">
+    <div class="container rounded col-md-6" style="background-color: white;">
+      <a type="button" class="container btn btn-block" href="/Formulario/Registros">
+        <i class="bi-image-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+        <div>Registros</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FILA 3 -->
+  <div class="p-2">
+    <div class="container rounded col-md-6" style="background-color: white;">
+      <a type="button" class="container btn btn-block" href="/Formulario/Colaboradores">
+        <i class="bi-people-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+        <div>Colaboradores</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FILA 4 -->
+  <div class="p-2">
+    <div class="container rounded col-md-6" style="background-color: white;">
+      <a type="button" class="container btn btn-block" href="/Formulario/Tributaciones">
+        <i class="bi-currency-dollar" style="font-size: 2rem; color: dodgerblue;"></i>
+        <div>Tributaciones</div>
+      </a>
+  </div>  
+  </div>
+  </div>
+
 </div>
 
 </body>

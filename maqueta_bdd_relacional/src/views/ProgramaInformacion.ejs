@@ -1,6 +1,5 @@
 <%- include("template/headTemplate") %>
-<%- include("template/navbar1Template") %> <!--
-<%- include("template/navbar2Template") %> -->
+<%- include("template/navbar1Template") %>
 
 <!-- TITULO --> 
 <div class="p-4">
@@ -10,7 +9,7 @@
   <h1>
     PROGRAMA
   </h1>
-  <a href="/">Inicio</a> -> <a href="/Formulario/FormularioProgramaInformacion">NOMBREPROGRAMA</a>
+  <a href="/">Inicio</a> -> <%= programa.nombre %>
 </div>
 
 <!-- FORMULARIO -->
@@ -24,15 +23,19 @@
               Nombre del Programa
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= programa.nombre %>
             </td>
           </tr>
           <tr>
-            <th scope="col">
+            <th scope="col"> 
               Tipo
             </th>
             <td>
-              TEXTOOOOOOOO
+              <% if (programa.id_tipo_programa == 1) { %>
+                Programa
+              <% } else { %>
+                Proyecto
+              <% } %>
             </td>
           </tr>
           <tr>
@@ -40,7 +43,7 @@
               Descripción
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= programa.descripcion %>
             </td>
           </tr>
           <tr>
@@ -48,7 +51,7 @@
               Unidad Asociada
             </th>
             <td>
-              TEXTOOOOOOOO
+              <%= programa.id_unidad %>
             </td>
           </tr>
         </tbody>
@@ -57,36 +60,28 @@
       <h4 class="container rounded" style="background-color: lightgrey;"> 
         CREADO POR
       </h4>
-  
+
       <!-- Datos desplegados -->
       <table class="table">
-        <!--
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nombre</th>
-            </tr>
-          </thead>
-          -->
-          <tbody>
-            <tr>
-              <th scope="col">
-                Nombre
-              </th>
-              <td>
-                TEXTOOOOOOOO
-              </td>
-            </tr>
-            <tr>
-              <th scope="col">
-                Fecha
-              </th>
-              <td>
-                TEXTOOOOOOOO
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <tbody>
+          <tr>
+            <th scope="col">
+              Nombre
+            </th>
+            <td>
+              
+            </td>
+          </tr>
+          <tr>
+            <th scope="col"> 
+              Fecha
+            </th>
+            <td>
+              <%= programa.fecha %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
   </div>
   

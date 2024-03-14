@@ -2,10 +2,26 @@
     <div class="pos-f-t">
       <nav class="navbar navbar-dark bg-light">
         <div class="navbar-nav flex-row">
-          <a class="nav-item nav-link p-4 text-dark" href="/Formulario/FormularioInteraccion">Interacción</a>
-          <a class="nav-item nav-link p-4 text-dark" href="/Formulario/FormularioRegistros">Registros</a>
-          <a class="nav-item nav-link p-4 text-dark" href="/Formulario/FormularioColaboradores">Colaboradores</a>
-          <a class="nav-item nav-link p-4 text-dark" href="/Formulario/FormularioTributaciones">Tributaciones</a>
+          <a class="nav-item nav-link text-dark" href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Interaccion">
+            <div class="container-xl">
+              <i class="bi-file-text-fill" style="font-size: 1rem; color: gray;"></i>Interacción
+            </div>
+          </a>
+          <a class="nav-item nav-link text-dark" href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Registros">
+            <div class="container-xl">
+              <i class="bi-image-fill" style="font-size: 1rem; color: gray;"></i>Registros
+            </div>
+          </a>
+          <a class="nav-item nav-link text-dark" href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Colaboradores">
+            <div class="container-xl">
+              <i class="bi-people-fill" style="font-size: 1rem; color: gray;"></i>Colaboradores
+            </div>
+          </a>
+          <a class="nav-item nav-link text-dark" href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Tributaciones">
+            <div class="container-xl">
+              <i class="bi-currency-dollar" style="font-size: 1rem; color: gray;"></i>Tributaciones
+            </div>
+          </a>
         </div>
       </nav>
     </div>
