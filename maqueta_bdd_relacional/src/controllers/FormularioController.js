@@ -25,11 +25,12 @@ const mostrarPrograma1 = (req, res) => {
 // Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
 const guardarPrograma1 = async (req, res) => {
     const body = req.body;
-    console.log('BODY Programa1',body);
+    //console.log('BODY Programa1',body);
     try {
         res.render('Programa2', {
             idTipoPrograma: body.tipoPrograma,
             nombrePrograma1: body.nombrePrograma,
+            unidadAsociadaNum: 1,
             error: false
         });
 
@@ -46,7 +47,7 @@ const mostrarPrograma2 = (req, res) => {
 // Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
 const guardarPrograma2 = async (req, res) => {
     const body = req.body;
-    console.log('BODY Programa2',body);
+    //console.log('BODY Programa2',body);
     try {
         // Instrucción sql para testing de base de datos relacional sqlite3
         //const guardarPrograma2 = "insert into vcm_programas(id_programa, id_tipo_programa, nombre, descripcion, id_unidad, fecha) values (?,?,?,?,?,?);";

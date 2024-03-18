@@ -15,7 +15,7 @@
 
       <div class="form-group p-2">
         <label for="id_nombrePrograma">Nombre del Programa: </label>
-        <input class="form-control" type="text" name="nombrePrograma" id="id_nombrePrograma" value="nombrePrograma1"></input>
+        <input class="form-control" type="text" name="nombrePrograma" id="id_nombrePrograma" value="<%= nombrePrograma1 %>"></input>
       </div>
 
       <div class="row p-2">
@@ -34,16 +34,20 @@
         <label for="id_descripcion">Descripción: </label>
         <input class="form-control" type="text" name="descripcion" id="id_descripcion"></input>
       </div>
-      <div class="row p-2">
+      <div class="row p-2" id="campoUnidadAsociada">
         <div class="form-group col-md-6">
         <label for="id_tipoUnidadAsociada">Tipo de Unidad Asociada: </label>
-        <select class="form-control" name="tipoUnidadAsociada" id="id_tipoUnidadAsociada">
+        <select class="form-control" onchange="mostrarUnidadAsociada();" name="tipoUnidadAsociada" id="id_tipoUnidadAsociada">
           <option value="1">Institucional</option>
           <option value="2">Departamento</option>
           <option value="3">Carrera</option>
         </select> 
         </div>
-        <%- include("template/unidadAsociada1Template") %>
+
+        <div class="form-group col-md-6" id="id_campoUnidadAsociada">
+          
+        </div>
+
       </div>
 
 </div>
@@ -58,5 +62,44 @@
 </form>
 
 </body>
+
+<script>
+
+  //let variable_json = '<%- JSON.stringify(unidadAsociadaNum) %>';
+  //alert(variable_json);
+ 
+  function removerCampoUnidadAsociada(){
+    let campoUnidadAsociadaViejo = document.getElementById('id_campoUnidadAsociada');
+    campoUnidadAsociadaViejo.parentNode.removeChild(campoUnidadAsociadaViejo);
+  };
+
+  function anadirCampoUnidadAsociada(unidadAsociadaCodigo) {
+    let campoUnidadAsociadaNuevo = document.createElement('div');
+    campoUnidadAsociadaNuevo.setAttribute('class', 'form-group col-md-6');
+    campoUnidadAsociadaNuevo.setAttribute('id', 'id_campoUnidadAsociada');
+    campoUnidadAsociadaNuevo.innerHTML = unidadAsociadaCodigo;
+    document.getElementById('campoUnidadAsociada').appendChild(campoUnidadAsociadaNuevo);
+  };
+
+  // Función para mostrar unidad asociada en formulario
+  function mostrarUnidadAsociada() {
+    let var_tipoUnidadAsociada = document.getElementById('id_tipoUnidadAsociada').value;
+
+    alert('var_tipoUnidadAsociada=',var_tipoUnidadAsociada);
+    alert('<%- include("template/unidadAsociada1Template") %>=');
+
+    if (var_tipoUnidadAsociada == 1) {
+      removerCampoUnidadAsociada();
+      anadirCampoUnidadAsociada('<%- include("template/unidadAsociada1Template") %>');
+    } else if (var_tipoUnidadAsociada == 2) {
+      removerCampoUnidadAsociada();
+      anadirCampoUnidadAsociada('<%- include("template/unidadAsociada2Template") %>');
+    } else {
+      removerCampoUnidadAsociada();
+      anadirCampoUnidadAsociada('<%- include("template/unidadAsociada3Template") %>');
+    };
+  };
+
+</script>
 
 </html>
