@@ -20,9 +20,10 @@
               <option value="2">Proyecto</option>
             </select>
         </div>
-        <% if ('2' == '2') { %>
-          <%- include("template/nombreProgramaTemplate") %>
-        <% } %>
+        <div class="form-group col-md-6">
+          <label for="id_nombrePrograma" id="id_nombreProgramaLabel">Nombre del Programa: </label>
+          <input class="form-control" type="text" name="nombrePrograma" id="id_nombrePrograma" required>
+        </div> 
       </div>
 
 </div>
