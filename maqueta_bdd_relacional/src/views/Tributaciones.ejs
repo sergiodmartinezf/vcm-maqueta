@@ -16,7 +16,7 @@
 <!-- FORMULARIO -->
 <div class="container rounded col-md-8" style="background-color: white;">
 
-    <form action="/Formulario/Tributaciones" method="POST">
+    <form action="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Tributaciones" method="POST">
 
       <div class="row p-2">
       <div class="form-group col-md-5">
@@ -36,7 +36,7 @@
       </select>
       </div>
       <div class="form-group col-md-2">
-      <button class="btn btn-success btn-block" type="submit">AGREGAR</button>
+      <button class="btn btn-primary btn-block" type="submit">AGREGAR</button>
       </div>
     </div>
       
@@ -56,10 +56,12 @@
 
     </div>
 
-  <div class="p-4">
-    <a class="btn btn-success btn-block" href="/Formulario/ActividadInformacion">Guardar</a>
+  <div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary btn-block" type="submit">
+      Guardar
+    </button>
   </div>
 
-</body> 
+</body>
 
 </html>

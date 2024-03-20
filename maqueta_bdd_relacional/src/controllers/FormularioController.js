@@ -2,7 +2,7 @@
 const database = require('../database');
 
 // FUNCIONES
-const array_dias = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+/**const array_dias = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
 const array_mes = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 function generarFecha(diaSemana, diaNumero, mes, ano, hora, minuto) {
     let fechaFinal='';
@@ -13,7 +13,7 @@ function generarFecha(diaSemana, diaNumero, mes, ano, hora, minuto) {
         fechaFinal = fechaFinal + 'pm';
     };
     return fechaFinal;
-};
+};*/
 
 // PROGRAMA
 

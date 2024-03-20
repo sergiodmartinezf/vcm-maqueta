@@ -131,7 +131,11 @@
               Responsable
             </th>
             <td>
-              <%= academico.nombre %>
+              <% if (typeof(academico) == "undefined") { %>
+
+              <% } else { %>
+                <%= academico.nombre %>
+              <% } %>
             </td>
           </tr>
           <tr>
@@ -189,13 +193,13 @@
 
 
 
-<!-- PESTAÑAS EXTRA -->
+<!-- PESTAÑAS EXTRA --> 
 <div class="col-md-5">
 
   <!-- FILA 1 -->
   <div class="p-2">
     <div class="container rounded col-md-6" style="background-color: white;">
-      <a type="button" class="container btn btn-block" href="/Formulario/Interaccion">
+      <a type="button" class="container btn btn-block" href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Interaccion">
         <i class="bi-file-text-fill" style="font-size: 2rem; color: dodgerblue;"></i>
         <div>Interacción</div>
       </a>
@@ -205,7 +209,7 @@
   <!-- FILA 2 -->
   <div class="p-2">
     <div class="container rounded col-md-6" style="background-color: white;">
-      <a type="button" class="container btn btn-block" href="/Formulario/Registros">
+      <a type="button" class="container btn btn-block" href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Registros">
         <i class="bi-image-fill" style="font-size: 2rem; color: dodgerblue;"></i>
         <div>Registros</div>
       </a>
@@ -215,7 +219,7 @@
   <!-- FILA 3 -->
   <div class="p-2">
     <div class="container rounded col-md-6" style="background-color: white;">
-      <a type="button" class="container btn btn-block" href="/Formulario/Colaboradores">
+      <a type="button" class="container btn btn-block" href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Colaboradores">
         <i class="bi-people-fill" style="font-size: 2rem; color: dodgerblue;"></i>
         <div>Colaboradores</div>
       </a>
@@ -225,7 +229,7 @@
   <!-- FILA 4 -->
   <div class="p-2">
     <div class="container rounded col-md-6" style="background-color: white;">
-      <a type="button" class="container btn btn-block" href="/Formulario/Tributaciones">
+      <a type="button" class="container btn btn-block" href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Tributaciones">
         <i class="bi-currency-dollar" style="font-size: 2rem; color: dodgerblue;"></i>
         <div>Tributaciones</div>
       </a>
