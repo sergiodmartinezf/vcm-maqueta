@@ -87,7 +87,7 @@
               <% academicoActividad.forEach(academicoActividad => { %>
                   <tr>
                       <th scope="row">
-                        <%= academicoActividad.id_actividad %>
+                        <a href="/Formulario/ActividadInformacion/<%= academicoActividad.id_actividad %>"><%= academicoActividad.id_actividad %></a>
                       </th>
                       <td>
                         <%= academicoActividad.nombre %>
