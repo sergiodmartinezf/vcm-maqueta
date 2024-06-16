@@ -1,0 +1,689 @@
+<%- include("template/headTemplate") %>
+<%- include("template/navbar1Template") %>
+
+<a class="btn btn-success btn-block" href="/Formulario/Programa1">Ir a Formulario</a>
+<a class="btn btn-success btn-block" href="/">Ir a index</a>
+
+    <h1>FormularioDatos.ejs</h1>
+    <h2>Datos ingresados en la base de datos</h2>
+
+    <!-- Datos desplegados --> 
+    <h3>vcm_areas_financiamientos</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_area_financiamiento</th>
+            <th scope="col">nombre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_areas_financiamientos.length > 0) { %>
+            <% array_vcm_areas_financiamientos.forEach(vcm_areas_financiamientos => { %>
+                <tr>
+                    <th scope="row">
+                        <%= vcm_areas_financiamientos.id_area_financiamiento %>
+                    </th>
+                    <td>
+                        <%= vcm_areas_financiamientos.nombre %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_tipos_registros</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_tipo_registro</th>
+            <th scope="col">nombre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_tipos_registros.length > 0) { %>
+            <% array_vcm_tipos_registros.forEach(vcm_tipos_registros => { %>
+                <tr>
+                    <th scope="row">
+                        <%= vcm_tipos_registros.id_tipo_registro %>
+                    </th>
+                    <td>
+                        <%= vcm_tipos_registros.nombre %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_tipos_programas</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_tipo_programa</th>
+            <th scope="col">nombre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_tipos_programas.length > 0) { %>
+            <% array_vcm_tipos_programas.forEach(vcm_tipos_programas => { %>
+                <tr>
+                    <th scope="row">
+                        <%= vcm_tipos_programas.id_tipo_programa %>
+                    </th>
+                    <td>
+                        <%= vcm_tipos_programas.nombre %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_tipos_extra_colaboradores</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_tipo_extra_colaborador</th>
+            <th scope="col">nombre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_tipos_extra_colaboradores.length > 0) { %>
+            <% array_vcm_tipos_extra_colaboradores.forEach(vcm_tipos_extra_colaboradores => { %>
+                <tr>
+                    <th scope="row">
+                        <%= vcm_tipos_extra_colaboradores.id_tipo_extra_colaborador %>
+                    </th>
+                    <td>
+                        <%= vcm_tipos_extra_colaboradores.nombre %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_estados_actividades</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_estado_actividad</th>
+            <th scope="col">nombre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_estados_actividades.length > 0) { %>
+            <% array_vcm_estados_actividades.forEach(vcm_estados_actividades => { %>
+                <tr>
+                    <th scope="row">
+                        <%= vcm_estados_actividades.id_estado_actividad %>
+                    </th>
+                    <td>
+                        <%= vcm_estados_actividades.nombre %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_inst_administrativos</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_inst_administrativo</th>
+            <th scope="col">nombre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_inst_administrativos.length > 0) { %>
+            <% array_vcm_inst_administrativos.forEach(vcm_inst_administrativos => { %>
+                <tr>
+                    <th scope="row">
+                        <%= vcm_inst_administrativos.id_inst_administrativo %>
+                    </th>
+                    <td>
+                        <%= vcm_inst_administrativos.nombre %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_tipos_destinatarios</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_tipo_destinatario</th>
+            <th scope="col">id_tipo_destinatario_origen</th>
+            <th scope="col">nombre</th>
+            <th scope="col">activo</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_tipos_destinatarios.length > 0) { %>
+            <% array_vcm_tipos_destinatarios.forEach(vcm_tipos_destinatarios => { %>
+                <tr>
+                    <th scope="row">
+                        <%= vcm_tipos_destinatarios.id_tipo_destinatario %>
+                    </th>
+                    <td>
+                        <%= vcm_tipos_destinatarios.id_tipo_destinatario_origen %>
+                    </td>
+                    <td>
+                      <%= vcm_tipos_destinatarios.nombre %>
+                    </td>
+                    <td>
+                      <%= vcm_tipos_destinatarios.activo %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_tipos_actividades</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_tipo_actividad</th>
+            <th scope="col">id_tipo_actividad_origen</th>
+            <th scope="col">nombre</th>
+            <th scope="col">descripcion</th>
+            <th scope="col">activo</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_tipos_actividades.length > 0) { %>
+            <% array_vcm_tipos_actividades.forEach(vcm_tipos_actividades => { %>
+                <tr>
+                    <th scope="row">
+                      <%= vcm_tipos_actividades.id_tipo_actividad %>
+                    </th>
+                    <td>
+                      <%= vcm_tipos_actividades.id_tipo_actividad_origen %>
+                    </td>
+                    <td>
+                      <%= vcm_tipos_actividades.nombre %>
+                    </td>
+                    <td>
+                      <%= vcm_tipos_actividades.descripcion %>
+                    </td>
+                    <td>
+                      <%= vcm_tipos_actividades.activo %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_tipos_financiamientos</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_tipo_financiamiento</th>
+            <th scope="col">id_area_financiamiento</th>
+            <th scope="col">nombre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_tipos_financiamientos.length > 0) { %>
+            <% array_vcm_tipos_financiamientos.forEach(vcm_tipos_financiamientos => { %>
+                <tr>
+                    <th scope="row">
+                      <%= vcm_tipos_financiamientos.id_tipo_financiamiento %>
+                    </th>
+                    <td>
+                      <%= vcm_tipos_financiamientos.id_area_financiamiento %>
+                    </td>
+                    <td>
+                      <%= vcm_tipos_financiamientos.nombre %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table> 
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_programas</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_programa</th>
+            <th scope="col">id_tipo_programa</th>
+            <th scope="col">nombre</th>
+            <th scope="col">descripcion</th>
+            <th scope="col">id_unidad</th>
+            <th scope="col">fecha</th>
+            <th scope="col">id_programa_origen</th>
+            <th scope="col">activo</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_programas.length > 0) { %>
+            <% array_vcm_programas.forEach(vcm_programas => { %>
+                <tr>
+                    <th scope="row">
+                      <%= vcm_programas.id_programa %>
+                    </th>
+                    <td>
+                      <%= vcm_programas.id_tipo_programa %>
+                    </td>
+                    <td>
+                      <%= vcm_programas.nombre %>
+                    </td>
+                    <td>
+                      <%= vcm_programas.descripcion %>
+                    </td>
+                    <td>
+                      <%= vcm_programas.id_unidad %>
+                    </td>
+                    <td>
+                      <%= vcm_programas.fecha %>
+                    </td>
+                    <td>
+                      <%= vcm_programas.id_programa_origen %>
+                    </td>
+                    <td>
+                      <%= vcm_programas.activo %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_actividades</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_actividad</th>
+            <th scope="col">nombre</th>
+            <th scope="col">descripcion</th>
+            <th scope="col">objetivo</th>
+            <th scope="col">id_tipo_actividad</th>
+            <th scope="col">id_tipo_destinatario</th>
+            <th scope="col">id_inst_administrativo</th>
+            <th scope="col">lugar</th>
+            <th scope="col">fecha_inicio</th>
+            <th scope="col">fecha_termino</th>
+            <th scope="col">fecha</th>
+            <th scope="col">id_estado_actividad</th>
+            <th scope="col">id_grupo</th>
+            <th scope="col">activo</th>
+            <th scope="col">id_campus</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_actividades.length > 0) { %>
+            <% array_vcm_actividades.forEach(vcm_actividades => { %>
+                <tr>
+                    <th scope="row">
+                      <%= vcm_actividades.id_actividad %>
+                    </th>
+                    <td>
+                      <%= vcm_actividades.nombre %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.descripcion %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.objetivo %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.id_tipo_actividad %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.id_tipo_destinatario %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.id_inst_administrativo %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.lugar %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.fecha_inicio %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.fecha_termino %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.fecha %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.id_estado_actividad %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.id_grupo %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.activo %>
+                    </td>
+                    <td>
+                      <%= vcm_actividades.id_campus %>
+                    </td>
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>fye_encuestados</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_encuestado</th>
+            <th scope="col">rut</th>
+            <th scope="col">id_encuesta</th>
+            <th scope="col">id_tipo_encuesta</th>
+            <th scope="col">rut_objetivo</th>
+            <th scope="col">fecha_inicio</th>
+            <th scope="col">fecha_termino</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_fye_encuestados.length > 0) { %>
+            <% array_fye_encuestados.forEach(fye_encuestados => { %>
+                <tr>
+                  <th scope="row">
+                    <%= fye_encuestados.id_encuestado %>
+                  </th>
+                  <td>
+                    <%= fye_encuestados.rut %>
+                  </td>
+                  <td>
+                    <%= fye_encuestados.id_encuesta %>
+                  </td>
+                  <td>
+                    <%= fye_encuestados.id_tipo_encuesta %>
+                  </td>
+                  <td>
+                    <%= fye_encuestados.rut_objetivo %>
+                  </td>
+                  <td>
+                    <%= fye_encuestados.fecha_inicio %>
+                  </td>
+                  <td>
+                    <%= fye_encuestados.fecha_termino %>
+                  </td>
+                
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_actividades_financiamiento</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_actividad</th>
+            <th scope="col">id_tipo_financiamiento</th>
+            <th scope="col">monto</th>
+            <th scope="col">horas_hombre</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_actividades_financiamiento.length > 0) { %>
+            <% array_vcm_actividades_financiamiento.forEach(vcm_actividades_financiamiento => { %>
+                <tr>
+                  <th scope="row">
+                    <%= vcm_actividades_financiamiento.id_actividad %>
+                  </th>
+                  <td>
+                    <%= vcm_actividades_financiamiento.id_tipo_financiamiento %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_financiamiento.monto %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_financiamiento.horas_hombre %>
+                  </td>
+                
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_actividades_registros</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_actividad</th>
+            <th scope="col">id_tipo_registro</th>
+            <th scope="col">ruta</th>
+            <th scope="col">descripcion</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_actividades_registros.length > 0) { %>
+            <% array_vcm_actividades_registros.forEach(vcm_actividades_registros => { %>
+                <tr>
+                  <th scope="row">
+                    <%= vcm_actividades_registros.id_actividad %>
+                  </th>
+                  <td>
+                    <%= vcm_actividades_registros.id_tipo_registro %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_registros.ruta %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_registros.descripcion %>
+                  </td>
+                
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_programas_actividades</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_programa</th>
+            <th scope="col">id_actividad</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_programas_actividades.length > 0) { %>
+            <% array_vcm_programas_actividades.forEach(vcm_programas_actividades => { %>
+                <tr>
+                  <th scope="row">
+                    <%= vcm_programas_actividades.id_programa %>
+                  </th>
+                  <td>
+                    <%= vcm_programas_actividades.id_actividad %>
+                  </td>
+                
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_actividades_encuestados</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_actividad</th>
+            <th scope="col">id_encuestado</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_actividades_encuestados.length > 0) { %>
+            <% array_vcm_actividades_encuestados.forEach(vcm_actividades_encuestados => { %>
+                <tr>
+                  <th scope="row">
+                    <%= vcm_actividades_encuestados.id_actividad %>
+                  </th>
+                  <td>
+                    <%= vcm_actividades_encuestados.id_encuestado %>
+                  </td>
+                
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_actividades_responsables</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_actividad</th>
+            <th scope="col">rut</th>
+            <th scope="col">tipo</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_actividades_responsables.length > 0) { %>
+            <% array_vcm_actividades_responsables.forEach(vcm_actividades_responsables => { %>
+                <tr>
+                  <th scope="row">
+                    <%= vcm_actividades_responsables.id_actividad %>
+                  </th>
+                  <td>
+                    <%= vcm_actividades_responsables.rut %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_responsables.tipo %>
+                  </td>
+                
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_actividades_ex_colaborador</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_actividad</th>
+            <th scope="col">id_tipo_extra_colaborador</th>
+            <th scope="col">rut</th>
+            <th scope="col">nombres</th>
+            <th scope="col">apellido_paterno</th>
+            <th scope="col">apellido_materno</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_actividades_ex_colaborador.length > 0) { %>
+            <% array_vcm_actividades_ex_colaborador.forEach(vcm_actividades_ex_colaborador => { %>
+                <tr>
+                  <th scope="row">
+                    <%= vcm_actividades_ex_colaborador.id_actividad %>
+                  </th>
+                  <td>
+                    <%= vcm_actividades_ex_colaborador.id_tipo_extra_colaborador %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_ex_colaborador.rut %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_ex_colaborador.nombres %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_ex_colaborador.apellido_paterno %>
+                  </td>
+                  <td>
+                    <%= vcm_actividades_ex_colaborador.apellido_materno %>
+                  </td>
+                
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+      <!-- Datos desplegados --> 
+    <h3>vcm_actividades_tributaciones</h3>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id_actividad</th>
+            <th scope="col">id_unidad</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        <% if (array_vcm_actividades_tributaciones.length > 0) { %>
+            <% array_vcm_actividades_tributaciones.forEach(vcm_actividades_tributaciones => { %>
+                <tr>
+                  <th scope="row">
+                    <%= vcm_actividades_tributaciones.id_actividad %>
+                  </th>
+                  <td>
+                    <%= vcm_actividades_tributaciones.id_unidad %>
+                  </td>
+                
+                  </tr>
+            <% }) %>
+        <% } %>
+        </tbody>
+      </table>
+
+</body>
+
+</html>

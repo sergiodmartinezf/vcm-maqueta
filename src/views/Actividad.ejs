@@ -1,0 +1,178 @@
+<%- include("template/headTemplate") %>
+<%- include("template/navbar1Template") %>
+
+  <div class="p-4">
+  <h2>ACTIVIDADES</h2>
+  <h1>AGREGAR UNA NUEVA ACTIVIDAD</h1>
+  <a href="/">Inicio</a> -> <a href="/Formulario/Actividad">Formulario de Nueva Actividad</a>
+  </div>
+
+
+<!-- FORMULARIO -->
+<div class="container rounded col-md-8" style="background-color: white;">
+
+    <form action="/Formulario/Actividad" method="POST">
+
+      <!-- FILA 1 -->
+      <div class="row p-2">
+      <div class="form-group col-md-8">
+        <label for="id_nombre">Nombre de la Actividad: </label>
+        <input class="form-control" type="text" name="nombre" id="id_nombre" required></input>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="id_campusSede">Campus/Sede: </label>
+        <select class="form-control" name="campusSede" id="id_campusSede" required>
+          <option value="1">Osorno</option>
+          <option value="2">Puerto Montt</option>
+          <option value="3">Chiloé</option>
+          <option value="4">Santiago</option>
+        </select>
+      </div>
+    </div>
+
+      <!-- FILA 2 -->
+      <div class="form-group p-2">
+        <label for="id_descripcion">Descripción: </label>
+        <input class="form-control" type="text" name="descripcion" id="id_descripcion" required></input>
+      </div>
+
+      <!-- FILA 3 -->
+      <div class="form-group p-2">
+        <label for="id_objetivo">Objetivo: </label>
+        <input class="form-control" type="text" name="objetivo" id="id_objetivo" required></input>
+      </div>
+
+      <!-- FILA 4 -->
+      <div class="form-group p-2">
+        <label for="id_tipoActividad">Tipo de Actividad: </label>
+        <select class="form-control" name="tipoActividad" id="id_tipoActividad" required>
+          <option value="1">tipoActividad_opcion1</option>
+          <option value="2">tipoActividad_opcion2</option>
+        </select>
+      </div>
+
+      <!-- NUEVO CAMPO -->
+      <div class="form-group p-2">
+        <label for="id_sistema">Sistema: </label>
+        <select class="form-control" name="sistema" id="id_sistema" required>
+          <option value="1">Público</option>
+          <option value="2">Privado</option>
+          <option value="3">Gubernamental</option>
+        </select>
+      </div>
+
+      <!-- FILA 5 -->
+      <div class="row p-2">
+      <div class="form-group col-md-6">
+        <label for="id_tipoSocioComunitario">Tipo Socio Comunitario: </label>
+        <select class="form-control" name="tipoSocioComunitario" id="id_tipoSocioComunitario" required>
+          <option value="1">tipoSocioComunitario_opcion1</option>
+          <option value="2">tipoSocioComunitario_opcion2</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="id_nombreSocio">Nombre de Socio: </label>
+        <input class="form-control" type="text" name="nombreSocio" id="id_nombreSocio" required></input>
+      </div>
+    </div>
+
+      <!-- FILA 6 -->
+      <div class="form-group p-2">
+        <label for="id_tipoDestinatario">Tipo de Destinatario: </label>
+        <select class="form-control" name="tipoDestinatario" id="id_tipoDestinatario" required>
+          <option value="1">tipoDestinatario_opcion1</option>
+          <option value="2">tipoDestinatario_opcion2</option>
+        </select>
+      </div>
+
+      <!-- FILA 7 -->
+      <div class="row p-2">
+      <div class="form-group col-md-3">
+        <label for="id_fechaInicio">Fecha de Inicio: </label>
+        <input class="form-control" type="date" name="fechaInicio" id="id_fechaInicio" required></input>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="id_horaInicio">Hora de Inicio: </label>
+        <input class="form-control" type="time" name="horaInicio" id="id_horaInicio" required></input>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="id_fechaTermino">Fecha de Término: </label>
+        <input class="form-control" type="date" name="fechaTermino" id="id_fechaTermino" required></input>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="id_horaTermino">Hora de Término: </label>
+        <input class="form-control" type="time" name="horaTermino" id="id_horaTermino" required></input>
+      </div>
+    </div>
+
+      <!-- FILA 8 -->
+      <div class="row p-2">
+      <div class="form-group col-md-6">
+        <label for="id_direccion">Direccion: </label>
+        <input class="form-control" type="text" name="direccion" id="id_direccion" required></input>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="id_numero">#Número: </label>
+        <input class="form-control" type="text" name="numero" id="id_numero" required></input>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="id_ciudad">Ciudad: </label>
+        <input class="form-control" type="text" name="ciudad" id="id_ciudad" required></input>
+      </div>
+    </div> 
+
+      <!-- FILA 9 -->
+      <div class="form-group p-2">
+        <label for="id_institucionesAdministrativas">Instrumento Administrativo: </label>
+        <select class="form-control" name="institucionesAdministrativas" id="id_institucionesAdministrativas" required>
+          <option value="1">institucionesAdministrativas_opcion1</option>
+          <option value="2">institucionesAdministrativas_opcion2</option>
+        </select>
+      </div>
+
+      <!-- FILA 10 -->
+      <div class="row p-2">
+      <div class="form-group col-md-8">
+        <label for="id_financiamiento">Financiamiento: </label>
+        <select class="form-control" name="financiamiento" id="id_financiamiento" required>
+          <option value="1">financiamiento_opcion1</option>
+          <option value="2">financiamiento_opcion2</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="id_monto">Monto: </label>
+        <input class="form-control" type="text" name="monto" id="id_monto" required></input>
+      </div>
+    </div>
+      
+    <!--</form>-->
+
+
+
+    <h4 class="container rounded" style="background-color: lightgrey;">
+      RESPONSABLE DE LA ACTIVIDAD
+    </h4>
+
+    <!--<form action="/Formulario/Formulario3" method="POST">-->
+
+      <!-- FILA 1 -->
+      <div class="form-group p-2">
+        <label for="id_responsable">Responsable: </label>
+        <input class="form-control" type="text" name="responsable" id="id_responsable" required></input>
+      </div>
+      
+    <!--</form>--> 
+
+</div>
+
+<div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-block" type="submit">
+    <i class="bi-floppy-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+  </button>
+</div>
+
+</form>
+
+</body>
+
+</html>

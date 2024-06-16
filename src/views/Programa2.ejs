@@ -1,0 +1,211 @@
+<%- include("template/headTemplate") %>
+<%- include("template/navbar1Template") %>
+
+<!-- TITULO -->
+<div class="p-4">
+  <h2>PROGRAMAS</h2>
+  <h1>AGREGAR UN PROGRAMA</h1> 
+  <a href="/">Inicio</a> -> <a href="/Formulario/Programa1">Nuevo Programa</a> -> Formulario de Nuevo Programa
+</div>
+
+<!-- FORMULARIO -->
+<div class="container rounded col-md-8" style="background-color: white;">
+
+    <form class="w-100 p-4" action="/Formulario/Programa2" method="POST">
+
+      <div class="form-group p-2">
+        <label for="id_nombrePrograma">Nombre del Programa: </label>
+        <input class="form-control" type="text" name="nombrePrograma" id="id_nombrePrograma" value="<%= nombrePrograma1 %>" required></input>
+      </div>
+
+      <div class="row p-2">
+        <div class="form-group col-md-6">
+        <label for="id_tipoPrograma">Tipo del Programa: </label>
+        <label class="form-control" id="id_tipoPrograma">
+          <% if (idTipoPrograma == 1) { %>
+            Programa
+          <% } else { %>
+            Proyecto
+          <% } %>
+        </label>
+        </div>
+      </div>
+      <div class="form-group p-2">
+        <label for="id_descripcion">Descripción: </label>
+        <input class="form-control" type="text" name="descripcion" id="id_descripcion" required></input>
+      </div>
+      <div class="row p-2" id="campoUnidadAsociada">
+        <div class="form-group col-md-6">
+        <label for="id_tipoUnidadAsociada">Tipo de Unidad Asociada: </label>
+        <select class="form-control" onchange="mostrarUnidadAsociada();" name="tipoUnidadAsociada" id="id_tipoUnidadAsociada">
+          <option value="1">Institucional</option>
+          <option value="2">Departamento</option>
+          <option value="3">Carrera</option>
+        </select> 
+        </div>
+
+        <div class="form-group col-md-6" id="id_campoUnidadAsociada">
+
+          <label for="id_unidadAsociada">Unidad Asociada: </label>
+          <select class="form-control" name="unidadAsociada" id="id_unidadAsociada">
+            <option value="1">Universidad De Los Lagos</option>
+          </select>
+          
+        </div>
+
+      </div>
+
+</div>
+
+<div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-block" type="submit">
+    <i class="bi-floppy-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+  </button>
+  </a>
+</div>
+
+</form>
+
+</body>
+
+<script>
+  // Codigos de elementos a añadir
+const unidadAsociada1 =
+'<label for="id_unidadAsociada">Unidad Asociada: </label>'+
+'<select class="form-control" name="unidadAsociada" id="id_unidadAsociada">'+
+  '<option value="1">Universidad De Los Lagos</option>'+
+'</select>';
+
+const unidadAsociada2 =
+'<label for="id_unidadAsociada">Unidad Asociada: </label>'+
+'<select class="form-control" name="unidadAsociada" id="id_unidadAsociada">'+
+  '<option value="2">I.T.R. Santiago</option>'+
+  '<option value="3">I.T.R. Chiloé</option>'+
+  '<option value="4">Ciencias Sociales</option>'+
+  '<option value="5">Acuicultura y Recursos Agroalimentarios</option>'+
+  '<option value="6">Arquitectura y Diseño</option>'+
+  '<option value="7">Ciencias Administrativas y Económicas</option>'+
+  '<option value="8">Ciencias Biológicas y Biodiversidad</option>'+
+  '<option value="9">Ciencias de la Actividad Física</option>'+
+  '<option value="10">Ciencias del Desarrollo</option>'+
+  '<option value="11">Ciencias Exactas</option>'+
+  '<option value="12">Salud</option>'+
+  '<option value="13">Gobierno y Gestión Pública</option>'+
+  '<option value="14">Humanidades y Arte</option>'+
+  '<option value="15">Recursos Naturales y Medio Ambiente</option>'+
+  '<option value="16">Educación</option>'+
+  '<option value="17">I.T.R. Osorno</option>'+
+  '<option value="18">I.T.R. Puerto Montt</option>'+
+  '<option value="19">Sede Chiloé</option>'+
+  '<option value="20">Sede Santiago</option>'+
+  '<option value="21">Dirección de Postgrado</option>'+
+  '<option value="22">Unidades Productivas</option>'+
+  '<option value="23">Escuela de Pedagogía</option>'+
+  '<option value="24">Dirección de Vinculación con el Medio</option>'+
+  '<option value="25">Dirección de Comunicaciones Estratégicas</option>'+
+  '<option value="26">Unidad de Seguimiento de Egresados</option>'+
+  '<option value="27">Dirección de Formación...</option>'+
+  '<option value="28">Dirección de Desarrollo Estudiantil</option>'+
+  '<option value="29">Academia de Arte y Cultura</option>'+
+  '<option value="30">Dirección de Relaciones Internacionales</option>'+
+  '<option value="31">PLACEHOLDER1</option>'+
+  '<option value="32">PLACEHOLDER2</option>'+
+'</select>';
+
+const unidadAsociada3 =
+'<label for="id_unidadAsociada">Unidad Asociada: </label>'+
+'<select class="form-control" name="unidadAsociada" id="id_unidadAsociada">'+
+  '<option value="33">Ingeniería Civil Obras Civiles (Puerto Montt)</option>'+
+  '<option value="34">Ingeniería Civil Eléctrica</option>'+
+  '<option value="35">Agronomía</option>'+
+  '<option value="36">Antropología</option>'+
+  '<option value="37">Ingeniería Civil Informática (Osorno)</option>'+
+  '<option value="38">Programa de... de Estudios en Educación Física</option>'+
+  '<option value="39">Programa de... de Estudios en Educación Parvularia</option>'+
+  '<option value="40">Ingeniería en Informática para... de Nivel Superior (Puerto Montt)</option>'+
+  '<option value="41">Ingeniería en Administración Pública (Santiago)</option>'+
+  '<option value="42">Ingeniería en Informática para... de Nivel Superior (Osorno)</option>'+
+  '<option value="43">Obstetricia y Puericultura</option>'+
+  '<option value="44">Construcción Civil para Técnicos (Chiloé)</option>'+
+  '<option value="45">Ingeniería en Informática para... de Nivel Superior (Chiloé)</option>'+
+  '<option value="46">Pedagogía en educación general básica (Chiloé)</option>'+
+  '<option value="47">Terapia Ocupacional (Chiloé)</option>'+
+  '<option value="48">Pedagogía en Educación básica mención Lenguaje y Matemática</option>'+
+  '<option value="49">Magíster en salud colectiva</option>'+
+  '<option value="50">Magíster gobierno y gestión de políticas públicas</option>'+
+  '<option value="51">Derecho</option>'+
+  '<option value="52">Terapia Ocupacional (Puerto Montt)</option>'+
+  '<option value="53">Pedagogía Historia y Geografía</option>'+
+  '<option value="54">Pedagogía (Osorno)</option>'+
+  '<option value="55">Trabajo Social</option>'+
+  '<option value="56">Psicología (Puerto Montt)</option>'+
+  '<option value="57">Ingeniería en Alimentos</option>'+
+  '<option value="58">Arquitectura</option>'+
+  '<option value="59">Ingeniería Comercial</option>'+
+  '<option value="60">Contador Público y Auditor</option>'+
+  '<option value="61">Biología Marina</option>'+
+  '<option value="62">Pedagogía Educación Media en Educación Física (Osorno)</option>'+
+  '<option value="63">Pedagogía Educación Media en Educación Física (Puerto Montt)</option>'+
+  '<option value="64">Pedagogía En Educación Media en Matemática y Computación</option>'+
+  '<option value="65">Kinesiología</option>'+
+  '<option value="66">Fonoaudiología</option>'+
+  '<option value="67">Enfermería</option>'+
+  '<option value="68">Nutrición y Dietética</option>'+
+  '<option value="69">Ciencias... y Administrativas</option>'+
+  '<option value="70">Ingeniería Civil Informática (Puerto Montt)</option>'+
+  '<option value="71">Ingeniería Civil Industrial</option>'+
+  '<option value="72">Pedagogía en Educación Media en inglés</option>'+
+  '<option value="73">Pedagogía en Educación en Lengua Castellana y Comunicaciones</option>'+
+  '<option value="74">Pedagogía en Educación Media en..., Música y Artes Visuales</option>'+
+  '<option value="75">Ingeniería Ambiental</option>'+
+  '<option value="76">Educación Parvularia (Osorno)</option>'+
+  '<option value="77">Educación Diferencial con Especialidad en Problemas de Aprendizaje</option>'+
+  '<option value="78">Técnico Deportivo Universitario (Osorno)</option>'+
+  '<option value="79">Técnico Universitario en Administración de Empresas (Osorno)</option>'+
+  '<option value="80">Técnico Universitario en Construcción (Osorno)</option>'+
+  '<option value="81">Técnico Universitario en Educación Parvularia (Osorno)</option>'+
+  '<option value="82">Técnico Universitario en Electricidad y Automatización (Osorno)</option>'+
+  '<option value="83">Técnico Universitario en Gestión y Desarrollo de Productos Alimentarios (Osorno)</option>'+
+  '<option value="84">Técnico Universitario en Informática (Osorno)</option>'+
+  '<option value="85">Construcción Civil para Técnicos de Nivel Superior (Osorno)</option>'+
+  '<option value="86">Ingeniería en Administración de Empresas para Técnicos Nivel Superior (Osorno)</option>'+
+  '<option value="87">Técnico Deportivo Universitario (Puerto Montt)</option>'+
+  '<option value="88">Técnico Universitario en Administración de Empresas (Puerto Montt)</option>'+
+  '<option value="89">Técnico Universitario en Construcción (Puerto Montt)</option>'+
+'</select>';
+
+// Funciones para creación y eliminación de campos
+
+// Función para remover campos
+function removerCampoUnidadAsociada(){
+  let campoUnidadAsociadaViejo = document.getElementById('id_campoUnidadAsociada');
+  campoUnidadAsociadaViejo.parentNode.removeChild(campoUnidadAsociadaViejo);
+};
+
+// Función para añadir campos
+function anadirCampoUnidadAsociada(unidadAsociadaCodigo) {
+  let campoUnidadAsociadaNuevo = document.createElement('div');
+  campoUnidadAsociadaNuevo.setAttribute('class', 'form-group col-md-6');
+  campoUnidadAsociadaNuevo.setAttribute('id', 'id_campoUnidadAsociada');
+  campoUnidadAsociadaNuevo.innerHTML = unidadAsociadaCodigo;
+  document.getElementById('campoUnidadAsociada').appendChild(campoUnidadAsociadaNuevo);
+};
+
+// Función para mostrar unidad asociada en formulario
+function mostrarUnidadAsociada() {
+  let var_tipoUnidadAsociada = document.getElementById('id_tipoUnidadAsociada').value;
+  if (var_tipoUnidadAsociada == 1) {
+    removerCampoUnidadAsociada();
+    anadirCampoUnidadAsociada(unidadAsociada1);
+  } else if (var_tipoUnidadAsociada == 2) {
+    removerCampoUnidadAsociada();
+    anadirCampoUnidadAsociada(unidadAsociada2);
+  } else {
+    removerCampoUnidadAsociada();
+    anadirCampoUnidadAsociada(unidadAsociada3);
+  };
+};
+
+</script>
+
+</html>

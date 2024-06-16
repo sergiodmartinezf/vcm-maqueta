@@ -1,0 +1,45 @@
+<%- include("template/headTemplate") %>
+<%- include("template/navbar1Template") %>
+  
+<!-- TITULO -->
+<div class="p-4">
+  <h2>PROGRAMAS</h2>
+  <h1>ELECCIÓN DEL TIPO DE PROGRAMA</h1> 
+  <a href="/">Inicio</a> -> Nuevo Programa
+</div>
+ 
+<!-- FORMULARIO -->
+<div class="col-md-8">
+
+    <form class="w-100 p-4" action="/Formulario/Programa1" method="POST">
+      <div class="row p-2">
+        <div class="form-group col-md-6">
+          <label for="id_tipoPrograma">Tipo de Programa: </label>
+            <select class="form-control" name="tipoPrograma" id="id_tipoPrograma">
+              <option value="1">Programa</option>
+              <option value="2">Proyecto</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="id_nombrePrograma" id="id_nombreProgramaLabel">Nombre del Programa: </label>
+          <input class="form-control" type="text" name="nombrePrograma" id="id_nombrePrograma" required>
+        </div> 
+      </div>
+
+</div>
+
+<div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end"> 
+  <button class="btn btn-block" type="submit">
+  <!--<a class="btn btn-block" href="/Formulario/Programa2">--> 
+  
+    <i class="bi-arrow-right-circle-fill" style="font-size: 2rem; color: dodgerblue;"></i>
+
+  <!--</a>-->
+  </button>
+</div>
+
+</form>
+
+</body>
+
+</html>
