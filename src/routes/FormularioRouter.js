@@ -25,56 +25,55 @@ const {
 
 } = require('../controllers/FormularioController');
 
-// Mostrar Formulario 
+// Mostrar Formulario del programa
 router.get('/Programa1', mostrarPrograma1);
 
-// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create)
+// Toma los datos del formulario donde se ingresan y los guarda en la base de datos (Create)
 router.post('/Programa1', guardarPrograma1);
 
-// Mostrar Formulario (Pág 2) 
+// Mostrar Formulario del programa (Pág 2) 
 router.get('/Programa2', mostrarPrograma2);
 
-// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create)
+// Toma los datos del programa del formulario donde se ingresan y los guarda en la base de datos (Create)
 router.post('/Programa2', guardarPrograma2);
 
-// Muesta formulario (Información de Actividad)
+// Muesta Información de Programa
 router.get('/ProgramaInformacion/:id', mostrarProgramaInformacion);
 
-// Muesta formulario (Búsqueda de Programa)
+// Muesta Página de Búsqueda de Programa
 router.get('/ProgramaBuscar', mostrarProgramaBuscar);
 
-// Mostrar Formulario (Pág 3)
+// Mostrar Formulario de Actividad
 router.get('/Actividad', mostrarActividad);
 
-// Muestra formulario (Información de Actividad)
+// Muestra Página de Información de Actividad
 router.get('/ActividadInformacion/:id', mostrarActividadInformacion);
 
-// Muestra formulario (Búsqueda de Actividad)
+// Muestra Página de Búsqueda de Actividad
 router.get('/ActividadBuscar', mostrarActividadBuscar);
 
-// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create)
+// Toma los datos de la actividad del formulario donde se ingresan y los guarda en la base de datos (Create)
 router.post('/Actividad', guardarActividad);
 
-// Mostrar Formulario (Información de Actividad)
+// Mostrar Página de Información de Actividad
 router.get('/ActividadInformacion/:id/Interaccion', mostrarInteraccion);
 
-// Mostrar Formulario (Búsqueda de Académico)
+// Mostrar Página de Búsqueda de Académico
 router.get('/AcademicoBuscar', mostrarAcademicoBuscar);
 
-// Mostrar Académico
+// Mostrar Resumen de Académico
 router.get('/AcademicoResumen/:id', leerAcademico);
 
-// Mostrar Formulario (Registros) 
+// Mostrar Página de Registros
 router.get('/ActividadInformacion/:id/Registros', mostrarRegistros);
 
-// Mostrar Formulario (Colaboradores)
+// Mostrar Página de Colaboradores
 router.get('/ActividadInformacion/:id/Colaboradores', mostrarColaboradores);
 
-// Mostrar Formulario (Tributaciones) 
+// Mostrar Página de Tributaciones 
 router.get('/ActividadInformacion/:id/Tributaciones', mostrarTributaciones);
 
-// Interacciones de formulario con base de datos
-// Muesta formulario (datos en base de datos) 
+// Muesta Página de datos en base de datos (testing)
 router.get('/Datos', verDatosFormulario);
 
 // Exportar router

@@ -1,28 +1,14 @@
 // Se importa funcionalidad de base de datos 
 const database = require('../database');
 
-// FUNCIONES
-/**const array_dias = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
-const array_mes = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-function generarFecha(diaSemana, diaNumero, mes, ano, hora, minuto) {
-    let fechaFinal='';
-    fechaFinal = array_dias[diaSemana] + ', ' + String(diaNumero) + ' ' + array_mes[mes] + ' ' + String(ano) + ', ' + String(hora) + ':' + String(minuto);
-    if (hora < 12) {
-        fechaFinal = fechaFinal + 'am';
-    } else {
-        fechaFinal = fechaFinal + 'pm';
-    };
-    return fechaFinal;
-};*/
-
 // PROGRAMA
 
-// Mostrar Formulario
+// Mostrar Formulario del programa
 const mostrarPrograma1 = (req, res) => {
     res.render('Programa1');
 };
 
-// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
+// Toma los datos del formulario donde se ingresan y los guarda en la base de datos (Create) 
 const guardarPrograma1 = async (req, res) => {
     const body = req.body;
     //console.log('BODY Programa1',body);
@@ -39,18 +25,15 @@ const guardarPrograma1 = async (req, res) => {
     }
 };
 
-// Mostrar Formulario (Pág 2)
+// Mostrar Formulario del programa (Pág 2) 
 const mostrarPrograma2 = (req, res) => {
     res.render('Programa2');
 };
 
-// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
+// Toma los datos del programa del formulario donde se ingresan y los guarda en la base de datos (Create)
 const guardarPrograma2 = async (req, res) => {
     const body = req.body;
-    //console.log('BODY Programa2',body);
     try {
-        // Instrucción sql para testing de base de datos relacional sqlite3
-        //const guardarPrograma2 = "insert into vcm_programas(id_programa, id_tipo_programa, nombre, descripcion, id_unidad, fecha) values (?,?,?,?,?,?);";
         const guardarPrograma2 = "insert into vcm_programas(id_programa, nombre, descripcion, id_unidad, fecha) values (?,?,?,?,?);";
 
         // Cálculo de nuevo id
@@ -75,9 +58,6 @@ const guardarPrograma2 = async (req, res) => {
         const diaNumeroActual = new Date().getDate();
         const mesActual = new Date().getMonth();
         const anoActual = new Date().getFullYear();
-        //const horaActual = new Date().getHours();
-        //const minutoActual = new Date().getMinutes(); 
-        //const fechaActual = generarFecha(diaSemanaActual, diaNumeroActual, mesActual, anoActual, horaActual, minutoActual);
         const fechaActual = anoActual + '-' + mesActual + '-' + diaNumeroActual;
 
         console.log('fechaActual=',fechaActual);
@@ -91,7 +71,7 @@ const guardarPrograma2 = async (req, res) => {
     }
 };
 
-// Mostrar Formulario (Información del Programa)
+// Muesta Información de Programa
 const mostrarProgramaInformacion = async (req, res) => {
     const id = req.params.id;
 
@@ -129,7 +109,7 @@ const mostrarProgramaInformacion = async (req, res) => {
     }
 };
 
-// Mostrar Formulario (Búsqueda de Programa) 
+// Muesta Página de Búsqueda de Programa
 const mostrarProgramaBuscar = async (req, res) => {
 
     // Datos de vcm_programas
@@ -158,12 +138,12 @@ const mostrarProgramaBuscar = async (req, res) => {
 
 // ACTIVIDAD
 
-// Mostrar Formulario (Pág 3)
+// Mostrar Formulario de Actividad
 const mostrarActividad = (req, res) => {
     res.render('Actividad');
 };
 
-// Mostrar Formulario (Información de Actividad)
+// Muestra Página de Información de Actividad
 const mostrarActividadInformacion = async (req, res) => {
     const id = req.params.id;
 
@@ -190,8 +170,6 @@ const mostrarActividadInformacion = async (req, res) => {
 
         console.log("leerActividad actividadDB =",actividadDB);
 
-
-        
         // Buscar dato con id de url y se imprime en consola
         let academicoDB = await new Promise((resolve, reject) => {
             database.all(leerAcademico, [id], (error, filas) => {
@@ -207,8 +185,6 @@ const mostrarActividadInformacion = async (req, res) => {
         academicoDB = academicoDB[0];
 
         console.log("leerAcademico academicoDB =",academicoDB);
-
-
 
         // Muestra dato encontrado
         res.render('ActividadInformacion', {
@@ -226,7 +202,7 @@ const mostrarActividadInformacion = async (req, res) => {
     }
 };
 
-// Mostrar Formulario (Búsqueda de Actividad)
+// Muestra Página de Búsqueda de Actividad
 const mostrarActividadBuscar = async (req, res) => {
 
     // Datos de vcm_actividades
@@ -253,7 +229,7 @@ const mostrarActividadBuscar = async (req, res) => {
     }
 };
 
-// Toma los datos de formulario donde se ingresan y los guarda en la base de datos (Create) 
+// Toma los datos de la actividad del formulario donde se ingresan y los guarda en la base de datos (Create)
 const guardarActividad = async (req, res) => {
     const body = req.body;
     console.log('BODY Actividad',body);
@@ -283,9 +259,6 @@ const guardarActividad = async (req, res) => {
         const diaNumeroActual = new Date().getDate();
         const mesActual = new Date().getMonth();
         const anoActual = new Date().getFullYear();
-        //const horaActual = new Date().getHours();
-        //const minutoActual = new Date().getMinutes(); 
-        //const fechaActual = generarFecha(diaSemanaActual, diaNumeroActual, mesActual, anoActual, horaActual, minutoActual);
         const fechaActual = anoActual + '-' + mesActual + '-' + diaNumeroActual;
 
         console.log('fechaActual=',fechaActual);
@@ -307,7 +280,7 @@ const guardarActividad = async (req, res) => {
 
 // INTERACCIÓN
 
-// Mostrar Formulario (Interacción)
+// Mostrar Página de Información de Actividad
 const mostrarInteraccion = async (req, res) => {
     const id = req.params.id;
 
@@ -348,7 +321,7 @@ const mostrarInteraccion = async (req, res) => {
 
 // REGISTROS
 
-// Mostrar Formulario (Registros)
+// Mostrar Página de Registros
 const mostrarRegistros = async (req, res) => {
     const id = req.params.id;
 
@@ -389,7 +362,7 @@ const mostrarRegistros = async (req, res) => {
 
 // COLABORADORES
 
-// Mostrar Formulario (Colaboradores)
+// Mostrar Página de Colaboradores
 const mostrarColaboradores = async (req, res) => {
     const id = req.params.id;
 
@@ -430,7 +403,7 @@ const mostrarColaboradores = async (req, res) => {
 
 // TRIBUTACIONES
 
-// Mostrar Formulario (Tributaciones)
+// Mostrar Página de Tributaciones 
 const mostrarTributaciones = async (req, res) => {
     const id = req.params.id;
 
@@ -471,7 +444,7 @@ const mostrarTributaciones = async (req, res) => {
 
 // ACADÉMICOS
 
-// Mostrar Académicos (Búsqueda de Académico)
+// Mostrar Página de Búsqueda de Académico
 const mostrarAcademicoBuscar = async (req, res) => {
 
     // Datos de vcm_programas
@@ -498,7 +471,7 @@ const mostrarAcademicoBuscar = async (req, res) => {
     }
 };
 
-// Obtiene académico específico de la base de datos (Read) 
+// Mostrar Resumen de Académico
 const leerAcademico = async (req, res) => {
     const id = req.params.id;
 
@@ -555,7 +528,7 @@ const leerAcademico = async (req, res) => {
 
 // DATOS
 
-// Muestra datos en base de datos ingresados por el formulario
+// Muesta Página de datos en base de datos (testing)
 const verDatosFormulario = async (req, res) => {
 
     // Datos de vcm_areas_financiamientos
@@ -912,6 +885,6 @@ module.exports = {
     mostrarColaboradores,
     mostrarTributaciones,
 
-    // Interacciones de formulario con base de datos
+    // Renderiza datos de base de datos (testing)
     verDatosFormulario,
 };
