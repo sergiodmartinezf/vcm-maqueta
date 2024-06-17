@@ -1,8 +1,15 @@
+<!-- Importar código para el estilo general de la página -->
 <%- include("template/headTemplate") %>
+
+<!-- Importar código para la barra de navegación en la parte superior de la página -->
 <%- include("template/navbar1Template") %>
+
+<!-- Importar código para la barra de navegación en la página de actividades -->
 <%- include("template/navbar2Template") %>
 
-<!-- TITULO --> 
+<!-- Página para buscar colaboradores --> 
+
+<!-- Título --> 
 <div class="p-4">
   <h2>
     ACTIVIDADES
@@ -13,7 +20,7 @@
   <a href="/">Inicio</a> -> <a href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>"><%= actividad.nombre %></a> -> Colaboradores
 </div>
 
-<!-- FORMULARIO -->
+<!-- Formulario --> 
 <div class="container rounded col-md-8" style="background-color: white;">
 
     <form action="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Colaboradores" method="POST">
@@ -21,42 +28,27 @@
     <div class="row p-2">
     <div class="form-group col-md-2">
       <label for="id_tipoColaborador">Tipo</label>
-      <input class="form-control" name="tipoColaborador" id="id_tipoColaborador" required><!--
-        <option value="tipoColaborador_opcion1">tipoColaborador_opcion1</option>
-        <option value="tipoColaborador_opcion2">tipoColaborador_opcion2</option>
-        <option value="tipoColaborador_opcion3">tipoColaborador_opcion3</option>-->
+      <input class="form-control" name="tipoColaborador" id="id_tipoColaborador" required>
       </select>
     </div>
     <div class="form-group col-md-2">
       <label for="id_rutColaborador">Rut</label>
-      <input class="form-control" name="rutColaborador" id="id_rutColaborador" required><!--
-        <option value="rutColaborador_opcion1">rutColaborador_opcion1</option>
-        <option value="rutColaborador_opcion2">rutColaborador_opcion2</option>
-        <option value="rutColaborador_opcion3">rutColaborador_opcion3</option>-->
+      <input class="form-control" name="rutColaborador" id="id_rutColaborador" required>
       </select>
     </div>
     <div class="form-group col-md-2">
       <label for="id_nombreColaborador">Nombre</label>
-      <input class="form-control" name="nombreColaborador" id="id_nombreColaborador" required><!--
-        <option value="nombreColaborador_opcion1">nombreColaborador_opcion1</option>
-        <option value="nombreColaborador_opcion2">nombreColaborador_opcion2</option>
-        <option value="nombreColaborador_opcion3">nombreColaborador_opcion3</option>-->
+      <input class="form-control" name="nombreColaborador" id="id_nombreColaborador" required>
       </select>
     </div>
     <div class="form-group col-md-2">
       <label for="id_apellidoPaternoColaborador">Apellido Paterno</label>
-      <input class="form-control" name="apellidoPaternoColaborador" id="id_apellidoPaternoColaborador" required><!--
-        <option value="apellidoPaternoColaborador_opcion1">apellidoPaternoColaborador_opcion1</option>
-        <option value="apellidoPaternoColaborador_opcion2">apellidoPaternoColaborador_opcion2</option>
-        <option value="apellidoPaternoColaborador_opcion3">apellidoPaternoColaborador_opcion3</option>-->
+      <input class="form-control" name="apellidoPaternoColaborador" id="id_apellidoPaternoColaborador" required>
       </select>
     </div>
     <div class="form-group col-md-2">
       <label for="id_apellidoMaternoColaborador">Apellido Materno</label>
-      <input class="form-control" name="apellidoMaternoColaborador" id="id_apellidoMaternoColaborador" required><!--
-        <option value="apellidoMaternoColaborador_opcion1">apellidoMaternoColaborador_opcion1</option>
-        <option value="apellidoMaternoColaborador_opcion2">apellidoMaternoColaborador_opcion2</option>
-        <option value="apellidoMaternoColaborador_opcion3">apellidoMaternoColaborador_opcion3</option>-->
+      <input class="form-control" name="apellidoMaternoColaborador" id="id_apellidoMaternoColaborador" required>
       </select>
     </div>
     <div class="form-group col-md-2">

@@ -1,8 +1,15 @@
+<!-- Importar código para el estilo general de la página -->
 <%- include("template/headTemplate") %>
+
+<!-- Importar código para la barra de navegación en la parte superior de la página -->
 <%- include("template/navbar1Template") %>
+
+<!-- Importar código para la barra de navegación en la página de actividades -->
 <%- include("template/navbar2Template") %>
 
-<!-- TITULO -->
+<!-- Página para tributaciones --> 
+
+<!-- Título --> 
 <div class="p-4">
   <h2>
     TRIBUTACIONES DE LA
@@ -13,7 +20,7 @@
   <a href="/">Inicio</a> -> <a href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>"><%= actividad.nombre %></a> -> Tributaciones
 </div>
 
-<!-- FORMULARIO -->
+<!-- Formulario -->
 <div class="container rounded col-md-8" style="background-color: white;">
 
     <form action="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Tributaciones" method="POST">

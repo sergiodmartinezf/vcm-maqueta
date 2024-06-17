@@ -1,14 +1,19 @@
+<!-- Importar código para el estilo general de la página -->
 <%- include("template/headTemplate") %>
+
+<!-- Importar código para la barra de navegación en la parte superior de la página -->
 <%- include("template/navbar1Template") %>
 
-<!-- TITULO -->
+<!-- Segunda página de formulario de programa --> 
+
+<!-- Título -->
 <div class="p-4">
   <h2>PROGRAMAS</h2>
   <h1>AGREGAR UN PROGRAMA</h1> 
   <a href="/">Inicio</a> -> <a href="/Formulario/Programa1">Nuevo Programa</a> -> Formulario de Nuevo Programa
 </div>
 
-<!-- FORMULARIO -->
+<!-- Formulario -->
 <div class="container rounded col-md-8" style="background-color: white;">
 
     <form class="w-100 p-4" action="/Formulario/Programa2" method="POST">
@@ -57,6 +62,7 @@
 
 </div>
 
+<!-- Botón -->
 <div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end">
   <button class="btn btn-block" type="submit">
     <i class="bi-floppy-fill" style="font-size: 2rem; color: dodgerblue;"></i>
@@ -69,7 +75,9 @@
 </body>
 
 <script>
-  // Codigos de elementos a añadir
+  
+// Codigos de elementos a añadir
+
 const unidadAsociada1 =
 '<label for="id_unidadAsociada">Unidad Asociada: </label>'+
 '<select class="form-control" name="unidadAsociada" id="id_unidadAsociada">'+

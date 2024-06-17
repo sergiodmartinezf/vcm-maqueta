@@ -1,8 +1,15 @@
+<!-- Importar código para el estilo general de la página -->
 <%- include("template/headTemplate") %>
+
+<!-- Importar código para la barra de navegación en la parte superior de la página -->
 <%- include("template/navbar1Template") %>
+
+<!-- Importar código para la barra de navegación en la página de actividades -->
 <%- include("template/navbar2Template") %>
 
-<!-- TITULO --> 
+<!-- Página de interacción --> 
+
+<!-- Título --> 
 <div class="p-4">
   <h2>
     ENCUESTA DE LA ACTIVIDAD
@@ -13,7 +20,7 @@
   <a href="/">Inicio</a> -> <a href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>"><%= actividad.nombre %></a> -> Interacción
 </div>
 
-<!-- FORMULARIO -->
+<!-- Formulario -->
 <div class="container rounded col-md-8" style="background-color: white;">
 
     <form action="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>/Interaccion" method="POST">
@@ -70,11 +77,6 @@
           <option value="1">Sector Productivo</option>
           <option value="2">Sector Social</option>
           <option value="3">Sector Gubernamental</option>
-          <!--<option value="1">Redes Temáticas</option>
-          <option value="2">Consejo asesor externo de carrera</option>
-          <option value="3">Consejo socio productivo</option>
-          <option value="4">Consejo Estratégico</option>
-          <option value="5">Otro</option>-->
         </select>
       </div>
       </div>

@@ -1,7 +1,10 @@
+<!-- Importar código para el estilo general de la página -->
 <%- include("template/headTemplate") %>
+
+<!-- Importar código para la barra de navegación en la parte superior de la página -->
 <%- include("template/navbar1Template") %>
 
-<!-- TITULO -->
+<!-- Título -->
 <div class="p-4">
   <h2>
     RESUMEN DEL
@@ -12,7 +15,9 @@
   <a href="/">Inicio</a> -> <%= academico.nombre %>
 </div>
 
-<!-- FORMULARIO -->
+<!-- Página para ver resúmenes de académicos -->
+
+<!-- Formulario -->
 <div class="container rounded col-md-12" style="background-color: white;">
 
     <!-- Datos desplegados -->
@@ -30,6 +35,7 @@
             <th scope="col">
               Campus/Sede
             </th>
+            <!-- Datos -->
             <td>
               <% if (academico.id_campus == 1) { %>
                 Osorno
@@ -42,6 +48,7 @@
               <% } %>
             </td>
           </tr>
+          <!-- Datos -->
           <tr>
             <th scope="col">
               Departamento Académico
@@ -83,6 +90,7 @@
             </tr>
           </thead>
           <tbody>
+            <!-- Datos -->
             <% if (academicoActividad.length > 0) { %>
               <% academicoActividad.forEach(academicoActividad => { %>
                   <tr>

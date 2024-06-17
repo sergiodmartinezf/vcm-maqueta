@@ -1,14 +1,19 @@
+<!-- Importar código para el estilo general de la página -->
 <%- include("template/headTemplate") %>
+
+<!-- Importar código para la barra de navegación en la parte superior de la página -->
 <%- include("template/navbar1Template") %>
+
+<!-- Primera página de formulario de programa --> 
   
-<!-- TITULO -->
+<!-- Título -->
 <div class="p-4">
   <h2>PROGRAMAS</h2>
   <h1>ELECCIÓN DEL TIPO DE PROGRAMA</h1> 
   <a href="/">Inicio</a> -> Nuevo Programa
 </div>
  
-<!-- FORMULARIO -->
+<!-- Formulario -->
 <div class="col-md-8">
 
     <form class="w-100 p-4" action="/Formulario/Programa1" method="POST">
@@ -28,13 +33,10 @@
 
 </div>
 
+<!-- Botón -->
 <div class="p-4 d-grid gap-2 d-md-flex justify-content-md-end"> 
   <button class="btn btn-block" type="submit">
-  <!--<a class="btn btn-block" href="/Formulario/Programa2">--> 
-  
     <i class="bi-arrow-right-circle-fill" style="font-size: 2rem; color: dodgerblue;"></i>
-
-  <!--</a>-->
   </button>
 </div>
 

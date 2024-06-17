@@ -1,7 +1,12 @@
+<!-- Importar código para el estilo general de la página -->
 <%- include("template/headTemplate") %>
+
+<!-- Importar código para la barra de navegación en la parte superior de la página -->
 <%- include("template/navbar1Template") %>
 
-<!-- TITULO -->
+<!-- Página para mostrar información de actividades -->
+
+<!-- Título -->
 <div class="p-4">
 <h2>
   INFORMACIÓN DE LA
@@ -12,10 +17,9 @@
 <a href="/">Inicio</a> -> <%= actividad.nombre %> <!--<a href="/Formulario/ActividadInformacion/<%= actividad.id_actividad %>"><%= actividad.nombre %></a>-->
 </div>
 
-<!-- FORMULARIO Y EXTRAS -->
 <div class="row p-2">
 
-<!-- FORMULARIO --> 
+<!-- Formulario -->
 <div class="container rounded col-md-6" style="background-color: white;">
  
     <!-- Datos desplegados -->
@@ -158,14 +162,6 @@
   
       <!-- Datos desplegados -->
       <table class="table">
-        <!--
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nombre</th>
-            </tr>
-          </thead>
-          -->
           <tbody>
             <tr>
               <th scope="col">
@@ -185,9 +181,6 @@
             </tr>
           </tbody>
         </table>
-
-      <!--<a class="btn btn-success btn-block" href="/">INDEX</a>-->
-  
 </div>
 
 
