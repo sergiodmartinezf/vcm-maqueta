@@ -59,10 +59,11 @@ database.run(vcm_academicos_insert,[
     9,'Académico 9',1,'Departamento 3','Carrera 6',
     10,'Académico 10',2,'Departamento 4','Carrera 8'
 ]);
-//database.run(vcm_areas_financiamientos_insert,[]);
-//database.run(vcm_tipos_registros_insert,[]);
+
+/*
+database.run(vcm_areas_financiamientos_insert,[]);
+database.run(vcm_tipos_registros_insert,[]);
 database.run(vcm_tipos_programas_insert,[1,'Programa',2,'Proyecto']);
-/**
 database.run(vcm_tipos_extra_colaboradores_insert,[]);
 database.run(vcm_estados_actividades_insert,[]);
 database.run(vcm_inst_administrativos_insert,[]);
@@ -71,6 +72,7 @@ database.run(vcm_tipos_actividades_insert,[]);
 database.run(vcm_tipos_financiamientos_insert,[]);
 database.run(vcm_programas_insert,[]);
 */
+
 database.run(vcm_actividades_insert,[
     1,'Actividad 1','Esta es la Actividad 1','Objetivo Actividad 1',1,1,1,'Av. Fuchslocher #1305, Osorno, Chile','2024-1-1',1,1,1,
     2,'Actividad 2','Esta es la Actividad 2','Objetivo Actividad 2',1,1,1,'Av. Fuchslocher #1305, Osorno, Chile','2024-1-1',1,1,1,
@@ -93,7 +95,8 @@ database.run(vcm_actividades_insert,[
     19,'Actividad 19','Esta es la Actividad 19','Objetivo Actividad 19',1,1,1,'Av. Fuchslocher #1305, Osorno, Chile','2024-1-1',1,1,10,
     20,'Actividad 20','Esta es la Actividad 20','Objetivo Actividad 20',1,1,1,'Av. Fuchslocher #1305, Osorno, Chile','2024-1-1',1,1,10
 ]);
-/**
+
+/*
 database.run(fye_encuestados_insert,[]);
 database.run(vcm_actividades_financiamiento_insert,[]);
 database.run(vcm_actividades_registros_insert,[]);

@@ -52,6 +52,7 @@ const vcm_actividades_ex_colaborador = 'CREATE TABLE vcm_actividades_ex_colabora
 const vcm_actividades_tributaciones = 'CREATE TABLE vcm_actividades_tributaciones(id_actividad INTEGER, id_unidad INTEGER, FOREIGN KEY (id_actividad) REFERENCES vcm_actividades(id_actividad) ON UPDATE CASCADE);';
 
 // Hace correr comandos sql
+/*
 database.run(vcm_academicos);
 database.run(vcm_areas_financiamientos);
 database.run(vcm_tipos_registros);
@@ -72,3 +73,4 @@ database.run(vcm_actividades_encuestados);
 database.run(vcm_actividades_responsables);
 database.run(vcm_actividades_ex_colaborador);
 database.run(vcm_actividades_tributaciones);
+*/

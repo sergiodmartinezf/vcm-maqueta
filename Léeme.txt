@@ -1,0 +1,15 @@
+A continuación se detallan los pasos para hacer funcionar la maqueta:
+
+1.-Instalar Node.js. Este fue el software utilizado para crear la maqueta. Se puede descargar el instalador desde https://nodejs.org/en/. Como alternativa se puede usar el instalador del programa adjuntado en este correo. Para instalar, se clickea en "Next/Siguiente" hasta que finalize la instalación.
+
+2.-Descargar el archivo .zip adjunto de la maqueta llamado "vcm-maqueta". Como alternativa, esta carpeta se puede descargar del repositorio ubicado en el siguiente enlace: https://github.com/sergiodmartinezf/vcm-maqueta. Al entrar al link, se debe clickear en el botón verde que dice "Code/Código" y luego clickear en "Download ZIP/Descargar ZIP"
+
+3.-Ejecutar el archivo "ejecutar.bat" que se encuentra dentro de la carpeta "vcm-maqueta". Se abrirá una ventana de comandos con los mensajes "Base de Datos Conectada" y "Servidor Encendido". Esto indica que el servidor de la maqueta está funcionando. Luego de esto hay que abrir el navegador y entrar al link "http://localhost:3000/". 
+
+4.-Para apagar la maqueta, se debe cerrar la ventana de comandos que se abrió al ejecutar el archivo "ejecutar.bat". El cierre puede demorar unos segundos.
+
+Información complemetaria
+
+Se adjunta un respaldo de la base de datos en la carpeta "respaldos_de_base_de_datos". El archivo "vcm-maqueta.db" es la base de datos usada para esta maqueta.
+
+

@@ -1,1 +1,1 @@
-Para utilizar alguno de estos respaldos, se debe cambiar el nombre del archivo a "vcm-maqueta" y reemplazarlo con el archivo del mismo nombre en la carpeta raíz de la maqueta.
+El respaldo contiene los datos que se determinaron como necesarios para la demostración de la maqueta, como por ejemplo, los resúmenes de académicos. Para utilizar el respaldo, se debe reemplazar con el archivo del mismo nombre en la carpeta raíz de la maqueta.
